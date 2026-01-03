@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ניהול זמן לנשים - תפסיקו לרוץ והתחילו לחיות</title>
+    
+    <!-- Google Fonts: Rubik -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            /* Brand Colors */
+            --primary-green: #1B4D3E;
+            --accent-gold: #D4AF37;
+            --bg-cream: #F8F9FA;
+            --text-dark: #333333;
+            --text-gray: #555555;
+            --error-red: #ef4444;
+            
+            /* UI Properties */
+            --shadow-soft: 0 20px 60px rgba(27, 77, 62, 0.08);
+            --radius-card: 24px;
+            --radius-btn: 50px;
+            --radius-img: 32px;
+        }
+
+        /* Reset & Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Rubik', sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.7;
+            font-weight: 300;
+            font-size: 18px;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--primary-green);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        h1 { font-weight: 900; }
+        
+        strong {
+            font-weight: 700;
+            color: var(--primary-green);
+        }
+
+        /* Special Highlight Effect */
+        .hero-highlight {
+            font-weight: 800;
+            font-size: 1.2em;
+            background: linear-gradient(to right, #b88a00 0%, #F6E27A 50%, #b88a00 100%);
+            background-size: 200% auto;
+            color: #000;
+            background-clip: text;
+            text-fill-color: transparent;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 4s linear infinite;
+            display: inline-block;
+        }
+
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
+        }
+        
+        .font-medium {
+            font-weight: 500;
+        }
+
+        a { text-decoration: none; }
+        ul { list-style: none; }
+        
+        /* Lucide Icons Styling */
+        .lucide {
+            stroke-width: 1.5px;
+            vertical-align: middle;
+            display: inline-block;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Utilities */
+        .text-center { text-align: center; }
+        .text-gold { color: var(--accent-gold); }
+        .mt-4 { margin-top: 2rem; }
+        
+        /* Typography Components */
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .section-title svg {
+            color: var(--accent-gold);
+            width: 32px;
+            height: 32px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 18px 45px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            border-radius: var(--radius-btn);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            border: none;
+            text-align: center;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, var(--accent-gold) 0%, #c49f2b 100%);
+            color: #ffffff;
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: var(--radius-card);
+            padding: 40px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            margin-bottom: 30px;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            padding: 60px 0 120px;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(to bottom, #fff 0%, var(--bg-cream) 100%);
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            margin-bottom: 25px;
+            max-width: 850px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.1;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-gray);
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Image Wrapper */
+        .hero-visuals {
+            position: relative;
+            max-width: 800px;
+            margin: 50px auto 0;
+            z-index: 1;
+        }
+        
+        .hero-image-placeholder {
+            width: 100%;
+            height: 400px;
+            background-color: #f0f4f3;
+            border-radius: var(--radius-img);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-green);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(27, 77, 62, 0.1);
+            box-shadow: var(--shadow-soft);
+        }
+
+        /* SPACED LAYOUTS */
+        section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        /* Wave Dividers */
+        .wave-bottom {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+        .wave-top {
+            position: absolute;
+            top: -1px;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        .wave svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 60px;
+        }
+        .wave-fill-white { fill: #FFFFFF; }
+        .wave-fill-cream { fill: var(--bg-cream); }
+
+        /* PAIN POINTS */
+        .pain-list {
+            display: grid;
+            gap: 20px;
+        }
+        
+        .pain-item {
+            display: flex;
+            align-items: flex-start;
+            font-size: 1.15rem;
+            background: rgba(255,255,255,0.6);
+            padding: 20px;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.5);
+            transition: transform 0.2s;
+        }
+        
+        .pain-item:hover {
+            transform: translateX(-5px);
+            background: #fff;
+        }
+        
+        .pain-item p { margin: 0; }
+
+        .pain-icon-wrapper {
+            color: var(--accent-gold);
+            background: rgba(212, 175, 55, 0.1);
+            padding: 8px;
+            border-radius: 50%;
+            margin-left: 20px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* GRID LAYOUTS */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 35px 25px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #fff;
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border-color: var(--accent-gold);
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.25rem;
+        }
+
+        .icon-box {
+            color: var(--primary-green);
+            margin-bottom: 20px;
+            background: #f0f7f4;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* DETAILS GRID */
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .detail-box {
+            background: #fff;
+            padding: 25px;
+            border-radius: var(--radius-card);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* PRICE BOX DESIGN */
+        .price-highlight-box {
+            background: #fff;
+            border-radius: var(--radius-card);
+            padding: 30px 40px;
+            text-align: center;
+            /* Border restored */
+            border: 2px solid var(--accent-gold);
+            box-shadow: 0 15px 50px rgba(212, 175, 55, 0.15);
+            max-width: 400px;
+            margin: 50px auto 0;
+            position: relative;
+            background-clip: padding-box;
+        }
+        
+        .price-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-gold);
+            color: #fff;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        /* FORM SECTION (Main) */
+        .form-section {
+            background: var(--primary-green);
+            color: white;
+            padding: 80px 0;
+            /* Margin removed to eliminate grey line gap */
+            margin: 0;
+            margin-top: 0; 
+            position: relative;
+            overflow: hidden;
+            border-radius: 0;
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: right;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 16px 20px;
+            border-radius: 12px;
+            border: 2px solid transparent;
+            font-family: 'Rubik', sans-serif;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s;
+            background: rgba(255,255,255,0.95);
+        }
+
+        .form-input:focus {
+            border-color: var(--accent-gold);
+            background: #ffffff;
+        }
+
+        .form-input.error {
+            border-color: var(--error-red);
+        }
+
+        .error-msg {
+            color: #ffbaba;
+            font-size: 0.85rem;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .form-input.error + .error-msg {
+            display: block;
+        }
+
+        .success-message {
+            display: none;
+            background: #fff;
+            color: var(--primary-green);
+            padding: 40px;
+            border-radius: var(--radius-card);
+            text-align: center;
+        }
+
+        /* TARGET AUDIENCE CHECKLIST */
+        .check-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: #ffffff;
+            padding: 20px 25px;
+            border-radius: 16px;
+            border: 1px solid rgba(27, 77, 62, 0.05);
+        }
+
+        .check-icon {
+            color: var(--primary-green);
+            min-width: 24px;
+        }
+
+        /* FAQ */
+        .faq-item {
+            background: #fff;
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            border-right: 4px solid var(--accent-gold);
+        }
+        .faq-q {
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* BOTTOM CTA */
+        .bottom-cta-section {
+            text-align: center;
+            background: #fff;
+            padding: 60px 0;
+        }
+
+        /* Footer */
+        footer {
+            background: #153e32;
+            color: rgba(255,255,255,0.6);
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.9rem;
+            position: relative;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero { padding-top: 40px; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero-image-placeholder { height: 280px; }
+            .section-title { font-size: 1.8rem; flex-direction: column; gap: 5px; }
+            .glass-card { padding: 25px; }
+            .check-grid { grid-template-columns: 1fr; }
+            .form-section { border-radius: 0; margin: 0; }
+            .form-container { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>תפסיקו לרוץ <br>והתחילו לחיות!</h1>
+            <p class="subtitle">הרצאה מרתקת על <span class="hero-highlight">ניהול זמן לנשים מדהימות בגיל 50+</span><br>תגלי איך לעשות יותר מהדברים שאת אוהבת, ופחות מהדברים שמתישים אותך</p>
+            
+            <a href="#register" class="btn btn-gold">
+                כן! אני רוצה להירשם עכשיו
+                <i data-lucide="arrow-left"></i>
+            </a>
+
+            <!-- Image with Decor -->
+            <div class="hero-visuals">
+                <div class="hero-image-placeholder">
+                    <i data-lucide="coffee" size="64" stroke-width="1" style="opacity:0.3; margin-bottom:20px;"></i>
+                    <div style="font-weight:500;">[תמונה: אישה כבת 50+, לבושה בסטייל קז'ואל-אלגנט, יושבת בנחת בגינה]</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Wave Divider Bottom -->
+        <div class="wave-bottom wave">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="wave-fill-white"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Pain Points -->
+    <section style="background: #fff;">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">
+                    <i data-lucide="frown"></i>
+                    האם את מרגישה ככה?
+                </h2>
+            </div>
+            
+            <div class="glass-card">
+                <div class="pain-list">
+                    <div class="pain-item">
+                        <div class="pain-icon-wrapper"><i data-lucide="list-x"></i></div>
+                        <p>כל יום את קמה עם <strong>רשימה של דברים לעשות</strong>, אבל בסוף היום לא עשית אף אחד מהדברים שבאמת חשובים לך?</p>
+                    </div>
+                    <div class="pain-item">
+                        <div class="pain-icon-wrapper"><i data-lucide="battery-low"></i></div>
+                        <p>את תמיד זמינה לכולם - לילדים, לנכדים - אבל <strong>אף פעם אין לך זמן לעצמך?</strong></p>
+                    </div>
+                    <div class="pain-item">
+                        <div class="pain-icon-wrapper"><i data-lucide="hourglass"></i></div>
+                        <p>את מרגישה שהימים פשוט חולפים, ואת <strong>עייפה כל הזמן</strong>, אבל לא יודעת למה?</p>
+                    </div>
+                    <div class="pain-item">
+                        <div class="pain-icon-wrapper"><i data-lucide="book-x"></i></div>
+                        <p>יש לך חלומות - תחביב, ספר שרצית לקרוא - אבל <strong>"אין זמן"?</strong></p>
+                    </div>
+                    <div class="pain-item">
+                        <div class="pain-icon-wrapper"><i data-lucide="heart-crack"></i></div>
+                        <p>את מרגישה אשמה כשאת עושה משהו בשבילך, כי "אולי צריכה לעזור למישהו"?</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <p class="font-medium" style="color: var(--primary-green); font-size: 1.3rem; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                    אם ענית "כן" אפילו לשאלה אחת - ההרצאה הזו בשבילך! 
+                    <i data-lucide="flower-2"></i>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Secrets / Value Proposition -->
+    <section style="background-color: var(--bg-cream);">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">
+                    <i data-lucide="gift"></i>
+                    מה את תקבלי בהרצאה?
+                </h2>
+                <p style="margin-bottom: 50px;">במשך 40 דקות מרתקות תלמדי:</p>
+            </div>
+            
+            <div class="grid-cards">
+                <!-- Secret 1 -->
+                <div class="feature-card">
+                    <div class="icon-box"><i data-lucide="zap" size="32"></i></div>
+                    <h3>סוד מספר 1:<br>למה את תמיד עייפה</h3>
+                    <p>גלי את החיבור המפתיע בין ניהול הזמן שלך למצב הרגשי והפיזי שלך.</p>
+                    <p class="font-medium text-gold" style="font-size:0.9rem; margin-top:auto;">(טיפ אחד יכול <strong>לשנות את רמת האנרגיה</strong> שלך לגמרי!)</p>
+                </div>
+                
+                <!-- Secret 2 -->
+                <div class="feature-card">
+                    <div class="icon-box"><i data-lucide="clock" size="32"></i></div>
+                    <h3>סוד מספר 2:<br>הטכניקה של 15 דקות</h3>
+                    <p>איך תכנון קצר בערב יכול להפוך את כל המחרת שלך.</p>
+                    <p class="font-medium text-gold" style="font-size:0.9rem; margin-top:auto;">(ותיפטרי סוף סוף מהתחושה <strong>"לא עשיתי כלום היום"</strong>)</p>
+                </div>
+
+                <!-- Secret 3 -->
+                <div class="feature-card">
+                    <div class="icon-box"><i data-lucide="gem" size="32"></i></div>
+                    <h3>סוד מספר 3:<br>איך למצוא את ה"יהלומים"</h3>
+                    <p>הטכניקה שתגלה לך איפה באמת כדאי לך להשקיע את הזמן.</p>
+                    <p class="font-medium text-gold" style="font-size:0.9rem; margin-top:auto;">(תדעי בדיוק מה באמת משנה ומה רק גוזל לך אנרגיה)</p>
+                </div>
+
+                <!-- Secret 4 -->
+                <div class="feature-card">
+                    <div class="icon-box"><i data-lucide="lightbulb" size="32"></i></div>
+                    <h3>סוד מספר 4:<br>הטריק שחוסך תסכול</h3>
+                    <p>איך להימנע מהטעויות שכולן עושות ולהגיע למטרה מהר יותר.</p>
+                    <p class="font-medium text-gold" style="font-size:0.9rem; margin-top:auto;">(ותפסיקי לבזבז זמן על ניסוי וטעייה)</p>
+                </div>
+
+                <!-- Secret 5 -->
+                <div class="feature-card">
+                    <div class="icon-box"><i data-lucide="sparkles" size="32"></i></div>
+                    <h3>סוד מספר 5:<br>כוח הבחירות הקטנות</h3>
+                    <p>איך 10 דקות ביום יכולות לשנות את כל החיים שלך.</p>
+                    <p class="font-medium text-gold" style="font-size:0.9rem; margin-top:auto;">(סיפורים מעוררי השראה של נשים בדיוק כמוך!)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Details & Price -->
+    <section style="background: #fff;">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">
+                    <i data-lucide="calendar-days"></i>
+                    פרטי ההרצאה
+                </h2>
+            </div>
+            <div class="details-grid">
+                <div class="detail-box">
+                    <i data-lucide="map-pin" class="text-gold" style="margin-bottom: 15px;"></i>
+                    <h3>היכן?</h3>
+                    <p>אונליין בזום<br>(מהנוחות של הבית!)</p>
+                </div>
+                <div class="detail-box">
+                    <i data-lucide="calendar" class="text-gold" style="margin-bottom: 15px;"></i>
+                    <h3>מתי?</h3>
+                    <p>יום רביעי, 14.1<br>בשעה 20:00</p>
+                </div>
+                <div class="detail-box">
+                    <i data-lucide="clock" class="text-gold" style="margin-bottom: 15px;"></i>
+                    <h3>כמה זמן?</h3>
+                    <p>40 דקות מרתקות</p>
+                </div>
+                <div class="detail-box">
+                    <i data-lucide="video" class="text-gold" style="margin-bottom: 15px;"></i>
+                    <h3>לא יכולה להגיע?</h3>
+                    <p>תקבלי הקלטה!</p>
+                </div>
+            </div>
+            
+            <div class="price-highlight-box">
+                <div class="price-badge">השקעה סימלית</div>
+                <p style="font-size: 4rem; font-weight: 700; color: var(--primary-green); line-height:1; margin: 20px 0;">37 ₪</p>
+                <p style="font-size: 1rem; color: var(--text-gray);">חישבי על זה: 37 ₪ זה פחות מקפה ועוגה בבית קפה...<br>אבל התובנות מההרצאה ילוו אותך שנים!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Form Section -->
+    <section class="form-section" id="register">
+        <div class="wave-top wave">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="wave-fill-white"></path>
+            </svg>
+        </div>
+
+        <div class="container">
+            <h2 class="text-center" style="color: #fff; margin-bottom: 10px; font-size: 2.5rem; display: flex; align-items: center; justify-content: center; gap: 15px;">
+                <i data-lucide="flame"></i>
+                הרשמה מהירה
+            </h2>
+            <p class="text-center" style="color: rgba(255,255,255,0.9); margin-bottom: 30px; font-weight: 500; font-size: 1.2rem;">מלאי פרטים למעבר לתשלום מאובטח</p>
+            
+            <div class="form-container">
+                <div id="form-content">
+                    <form id="leadForm" onsubmit="handleSubmit(event)">
+                        <div class="form-group">
+                            <label class="form-label">שם מלא</label>
+                            <input type="text" id="fullName" class="form-input" placeholder="לדוגמה: רחלי כהן">
+                            <div class="error-msg">נא להזין שם מלא תקין (מינימום 2 אותיות)</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">דואר אלקטרוני</label>
+                            <input type="email" id="email" class="form-input" placeholder="name@example.com">
+                            <div class="error-msg">נא להזין כתובת אימייל תקינה</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">טלפון נייד</label>
+                            <input type="tel" id="phone" class="form-input" placeholder="0501234567">
+                            <div class="error-msg">נא להזין מספר נייד תקין (10 ספרות בדיוק)</div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-gold" style="width: 100%; margin-top: 10px;">
+                            כן! אני רוצה להעניק לעצמי את המתנה הזו
+                            <i data-lucide="arrow-left"></i>
+                        </button>
+                        
+                        <div class="text-center" style="margin-top: 20px; font-size: 0.85rem; opacity: 0.8; color: white;">
+                            <i data-lucide="lock" size="14" style="display:inline; vertical-align:middle;"></i>
+                            הפרטים שלך בטוחים איתנו | תשלום מאובטח בתקן PCI
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Success Message -->
+                <div id="success-message" class="success-message">
+                    <div style="color: var(--primary-green); margin-bottom: 20px;">
+                        <i data-lucide="check-circle" size="64"></i>
+                    </div>
+                    <h3>איזה כיף!</h3>
+                    <p>הפרטים נקלטו בהצלחה.</p>
+                    <p>מיד מועברת לדף התשלום...</p>
+                    <div style="margin-top: 20px;">
+                        <i data-lucide="loader" class="animate-spin"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wave-bottom wave">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="wave-fill-cream"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Target Audience -->
+    <section>
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">
+                    <i data-lucide="target"></i>
+                    זה בשבילך אם:
+                </h2>
+            </div>
+            <div class="check-grid">
+                <div class="check-item">
+                    <div class="check-icon"><i data-lucide="check-circle-2"></i></div>
+                    <span>את רוצה סוף סוף להפסיק <strong>להרגיש עייפה</strong> כל הזמן</span>
+                </div>
+                <div class="check-item">
+                    <div class="check-icon"><i data-lucide="check-circle-2"></i></div>
+                    <span>את רוצה ללמוד <strong>לומר "לא"</strong> בלי להרגיש אשמה</span>
+                </div>
+                <div class="check-item">
+                    <div class="check-icon"><i data-lucide="check-circle-2"></i></div>
+                    <span>את רוצה לעשות יותר דברים שאת <strong>אוהבת</strong></span>
+                </div>
+                <div class="check-item">
+                    <div class="check-icon"><i data-lucide="check-circle-2"></i></div>
+                    <span>את רוצה להרגיש שאת שולטת בחיים, לא שהחיים שולטים בך</span>
+                </div>
+                <div class="check-item">
+                    <div class="check-icon"><i data-lucide="check-circle-2"></i></div>
+                    <span>את רוצה להיות דוגמה לילדים ולנכדים - אישה שיודעת <strong>לדאוג גם לעצמה</strong></span>
+                </div>
+                <div class="check-item">
+                    <div class="check-icon"><i data-lucide="check-circle-2"></i></div>
+                    <span>את רוצה לחיות את השנים הבאות בצורה הכי מלאה ומספקת</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personal Note -->
+    <section style="background: #fff;">
+        <div class="container">
+            <div class="glass-card" style="max-width: 800px; margin: 0 auto; position: relative; border: 2px solid var(--bg-cream);">
+                <i data-lucide="quote" style="position: absolute; top: 30px; right: 30px; opacity: 0.1; width: 60px; height: 60px; color: var(--primary-green);"></i>
+                <div class="text-center" style="margin-bottom: 30px;">
+                    <i data-lucide="mail-open" color="var(--accent-gold)" size="32"></i>
+                    <h3 style="color: var(--primary-green); margin-top:10px;">מסר אישי ממני אליך</h3>
+                </div>
+                <p>יקרה,</p>
+                <br>
+                <p>אני יודעת שאת עסוקה. אני יודעת שיש לך מיליון דברים לעשות.</p>
+                <p>אני יודעת שאולי את חושבת "עוד הרצאה, מה זה ישנה לי?"</p>
+                <br>
+                <p>אבל דעי לך - <strong>40 דקות האלה יכולות לשנות את איך שאת חיה</strong> את כל השנים הבאות.</p>
+                <p>זו לא עוד הרצאה על "איך להיות יותר פרודוקטיבית". זו הזדמנות לגלות מחדש את עצמך. להבין שמגיע לך להיות מאושרת. ללמוד איך לחיות, לא רק לרוץ.</p>
+                <br>
+                <p>אני מזמינה אותך להעניק לעצמך את המתנה הזו. בואי, זה יהיה נפלא. <i data-lucide="heart" size="18" fill="var(--accent-gold)" color="var(--accent-gold)"></i></p>
+                <div class="text-center mt-4">
+                    <span style="font-family: 'Rubik', sans-serif; font-size: 1.4rem; color: var(--accent-gold); font-weight:500;">בברכה וחיבוק</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section style="padding-bottom: 20px;">
+        <div class="container" style="max-width: 800px;">
+            <div class="text-center">
+                <h2 class="section-title">
+                    <i data-lucide="help-circle"></i>
+                    שאלות נפוצות
+                </h2>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q"><i data-lucide="chevron-left" size="20" color="var(--accent-gold)"></i> האם ההרצאה באמת בשבילי?</div>
+                <div class="faq-a">אם את בגיל 50+ ומרגישה שהזמן בורח לך, שאת עייפה, או שפשוט רוצה יותר זמן לעצמך - זה בדיוק בשבילך!</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q"><i data-lucide="chevron-left" size="20" color="var(--accent-gold)"></i> מה אם אני לא יכולה להגיע?</div>
+                <div class="faq-a">אין בעיה! תקבלי הקלטה של ההרצאה ותוכלי לצפות בה בזמן שנוח לך.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q"><i data-lucide="chevron-left" size="20" color="var(--accent-gold)"></i> מה אם אני כבר ניסיתי הכל?</div>
+                <div class="faq-a">הגישה שלנו שונה - היא לא דורשת ממך להיות "יותר ממושמעת". היא מלמדת אותך לעבוד חכם, לא קשה.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q"><i data-lucide="chevron-left" size="20" color="var(--accent-gold)"></i> האם אני צריכה להכין משהו מראש?</div>
+                <div class="faq-a">רק ללב פתוח ומחברת לרשימות. זהו!</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom CTA (Simple) -->
+    <section class="bottom-cta-section">
+        <div class="container">
+            <h2 style="margin-bottom: 20px;">אל תחכי לרגע האחרון</h2>
+            <p style="margin-bottom: 30px; font-size: 1.2rem;">הצטרפי למאות נשים שכבר בחרו בעצמן</p>
+            <a href="#register" class="btn btn-gold">
+                שרייני את מקומך ב-37 ₪
+                <i data-lucide="arrow-up"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="wave-top wave">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="wave-fill-white"></path>
+            </svg>
+        </div>
+        <div class="container" style="padding-top: 50px;">
+            <p>© כל הזכויות שמורות | רבקה הולצברג בריאות שבאה מהטבע | 2026</p>
+            <div style="margin-top: 15px; opacity: 0.6; display: flex; justify-content: center; gap: 15px;">
+                <a href="#" style="color:white">תקנון</a> | 
+                <a href="#" style="color:white">הצהרת נגישות</a> | 
+                <a href="#" style="color:white">צור קשר</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // UPDATED WEBHOOK URL
+        const WEBHOOK_URL = "https://hook.eu2.make.com/rln1mh63fq97le9sdegmej01k81pp68s";
+        const PAYMENT_URL = "https://invoice4u.co.il/payment-link-placeholder"; 
+
+        // Validation Logic
+        function validateForm(name, email, phone) {
+            let isValid = true;
+            
+            // Name Validation (Letters only, min 2 chars)
+            const nameRegex = /^[א-תa-zA-Z\s]{2,}$/;
+            const nameInput = document.getElementById('fullName');
+            if (!nameRegex.test(name)) {
+                nameInput.classList.add('error');
+                isValid = false;
+            } else {
+                nameInput.classList.remove('error');
+            }
+
+            // Phone Validation (Exactly 10 digits)
+            const phoneRegex = /^\d{10}$/;
+            const phoneInput = document.getElementById('phone');
+            // Remove dashes/spaces for check
+            const cleanPhone = phone.replace(/[-\s]/g, '');
+            if (!phoneRegex.test(cleanPhone)) {
+                phoneInput.classList.add('error');
+                isValid = false;
+            } else {
+                phoneInput.classList.remove('error');
+            }
+
+            // Email Validation (Basic Format)
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const emailInput = document.getElementById('email');
+            if (!emailRegex.test(email)) {
+                emailInput.classList.add('error');
+                isValid = false;
+            } else {
+                emailInput.classList.remove('error');
+            }
+
+            return isValid;
+        }
+
+        // Handle Submit
+        function handleSubmit(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('fullName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+
+            if (validateForm(name, email, phone)) {
+                // Change Button State
+                const btn = document.querySelector('button[type="submit"]');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = 'שולח...';
+                btn.disabled = true;
+
+                // Prepare Payload - Separate Fields
+                const payload = {
+                    "fullName": name,
+                    "email": email,
+                    "phone": phone
+                };
+
+                // Real Fetch to Make
+                fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                })
+                .then(response => {
+                    // Success UI
+                    document.getElementById('leadForm').style.display = 'none';
+                    document.getElementById('success-message').style.display = 'block';
+                    lucide.createIcons();
+
+                    setTimeout(() => {
+                        console.log("Redirecting to: " + PAYMENT_URL);
+                        window.location.href = PAYMENT_URL; 
+                    }, 2000);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    // Fallback success flow for demo
+                    document.getElementById('leadForm').style.display = 'none';
+                    document.getElementById('success-message').style.display = 'block';
+                    lucide.createIcons();
+                    setTimeout(() => { window.location.href = PAYMENT_URL; }, 2000);
+                })
+                .finally(() => {
+                     // Normally you'd reset the button here if not redirecting, 
+                     // but since we redirect or show success, we leave it.
+                });
+            }
+        }
+    </script>
+
+</body>
+</html>
