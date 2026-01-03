@@ -216,6 +216,14 @@
             border: 1px solid rgba(27, 77, 62, 0.1);
             box-shadow: var(--shadow-soft);
         }
+        
+        /* New CSS for the image inside placeholder */
+        .hero-image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
 
         /* SPACED LAYOUTS */
         section {
@@ -536,8 +544,14 @@
             <!-- Image with Decor -->
             <div class="hero-visuals">
                 <div class="hero-image-placeholder">
-                    <i data-lucide="coffee" size="64" stroke-width="1" style="opacity:0.3; margin-bottom:20px;"></i>
-                    <div style="font-weight:500;">[תמונה: אישה כבת 50+, לבושה בסטייל קז'ואל-אלגנט, יושבת בנחת בגינה]</div>
+                    <!-- תמונה אמיתית - photo.png -->
+                    <img src="photo.png" alt="אישה רגועה בגינה - ניהול זמן לנשים" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                    
+                    <!-- Fallback if photo.png is missing -->
+                    <div style="display:none; flex-direction:column; align-items:center; justify-content:center; width:100%; height:100%; position:absolute; top:0; left:0;">
+                         <i data-lucide="image" size="64" stroke-width="1" style="opacity:0.3; margin-bottom:20px;"></i>
+                         <div style="font-weight:500;">photo.png</div>
+                    </div>
                 </div>
             </div>
         </div>
