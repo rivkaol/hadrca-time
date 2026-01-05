@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ניהול זמן לנשים - תפסיקו לרוץ והתחילו לחיות</title>
     
-    <!-- Google Fonts: Rubik -->
+    <!-- Google Fonts: Heebo + Rubik (Backup) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&family=Rubik:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -42,7 +42,7 @@
         }
 
         body {
-            font-family: 'Rubik', sans-serif;
+            font-family: 'Heebo', sans-serif; /* שינוי לפונט Heebo */
             background-color: var(--bg-cream);
             color: var(--text-dark);
             line-height: 1.7;
@@ -51,9 +51,14 @@
             overflow-x: hidden;
         }
 
+        /* FORCE FONT on all form elements to prevent 'David' fallback */
+        button, input, textarea, select {
+            font-family: 'Heebo', sans-serif !important;
+        }
+
         h1, h2, h3, h4 {
             color: var(--primary-green);
-            font-weight: 700;
+            font-weight: 800; /* Heavier weight for Heebo */
             line-height: 1.2;
         }
         
@@ -66,7 +71,7 @@
 
         /* Special Highlight Effect */
         .hero-highlight {
-            font-weight: 800;
+            font-weight: 900;
             font-size: 1.2em;
             background: linear-gradient(to right, #b88a00 0%, #F6E27A 50%, #b88a00 100%);
             background-size: 200% auto;
@@ -135,13 +140,14 @@
             justify-content: center;
             gap: 10px;
             padding: 18px 45px;
-            font-size: 1.2rem;
-            font-weight: 500;
+            font-size: 1.3rem;
+            font-weight: 800; /* Extra Bold */
             border-radius: var(--radius-btn);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
             border: none;
             text-align: center;
+            letter-spacing: 0.5px; /* טיפה רווח לקריאות ב-Heebo */
         }
 
         .btn-gold {
@@ -193,11 +199,48 @@
             margin-right: auto;
         }
 
+        /* Hero Form Styles (Bright & Inviting) */
+        .hero-form-box {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 450px;
+            margin: 30px auto 50px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+            text-align: right;
+        }
+
+        .hero-form-box h3 {
+            color: var(--primary-green);
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+
+        .hero-form-box .form-input {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            color: var(--text-dark);
+        }
+        
+        .hero-form-box .form-input:focus {
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        .hero-form-box .form-label {
+            color: var(--primary-green);
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
         /* Image Wrapper */
         .hero-visuals {
             position: relative;
             max-width: 800px;
-            margin: 50px auto 0;
+            margin: 0 auto 0;
             z-index: 1;
         }
         
@@ -217,7 +260,6 @@
             box-shadow: var(--shadow-soft);
         }
         
-        /* New CSS for the image inside placeholder */
         .hero-image-placeholder img {
             width: 100%;
             height: 100%;
@@ -357,7 +399,6 @@
             border-radius: var(--radius-card);
             padding: 30px 40px;
             text-align: center;
-            /* Border restored */
             border: 2px solid var(--accent-gold);
             box-shadow: 0 15px 50px rgba(212, 175, 55, 0.15);
             max-width: 400px;
@@ -379,14 +420,12 @@
             font-weight: 700;
         }
 
-        /* FORM SECTION (Main) */
+        /* FORM SECTION (Main - Green) */
         .form-section {
             background: var(--primary-green);
             color: white;
             padding: 80px 0;
-            /* Margin removed to eliminate grey line gap */
             margin: 0;
-            margin-top: 0; 
             position: relative;
             overflow: hidden;
             border-radius: 0;
@@ -417,12 +456,13 @@
             font-weight: 500;
         }
 
+        /* Default input */
         .form-input {
             width: 100%;
             padding: 16px 20px;
             border-radius: 12px;
             border: 2px solid transparent;
-            font-family: 'Rubik', sans-serif;
+            font-family: 'Heebo', sans-serif; /* Explicit font */
             font-size: 1rem;
             outline: none;
             transition: all 0.3s;
@@ -443,6 +483,10 @@
             font-size: 0.85rem;
             margin-top: 5px;
             display: none;
+        }
+        
+        .hero-form-box .error-msg {
+            color: var(--error-red);
         }
         
         .form-input.error + .error-msg {
@@ -525,6 +569,7 @@
             .check-grid { grid-template-columns: 1fr; }
             .form-section { border-radius: 0; margin: 0; }
             .form-container { padding: 25px; }
+            .hero-form-box { padding: 20px; margin: 20px auto; }
         }
     </style>
 </head>
@@ -536,10 +581,47 @@
             <h1>תפסיקו לרוץ <br>והתחילו לחיות!</h1>
             <p class="subtitle">הרצאה מרתקת על <span class="hero-highlight">ניהול זמן לנשים מדהימות בגיל 50+</span><br>תגלי איך לעשות יותר מהדברים שאת אוהבת, ופחות מהדברים שמתישים אותך</p>
             
-            <a href="#register" class="btn btn-gold">
-                כן! אני רוצה להירשם עכשיו
-                <i data-lucide="arrow-left"></i>
-            </a>
+            <!-- Hero Form (Bright & Inviting) -->
+            <div class="hero-form-box">
+                <h3>הבטיחי את מקומך בהרצאה</h3>
+                <form class="lead-form" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label class="form-label">שם מלא</label>
+                        <input type="text" name="fullName" class="form-input">
+                        <div class="error-msg">נא להזין שם מלא תקין (מינימום 2 אותיות)</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">דואר אלקטרוני</label>
+                        <input type="email" name="email" class="form-input">
+                        <div class="error-msg">נא להזין כתובת אימייל תקינה</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">טלפון נייד</label>
+                        <input type="tel" name="phone" class="form-input">
+                        <div class="error-msg">נא להזין מספר נייד תקין (10 ספרות בדיוק)</div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-gold" style="width: 100%; margin-top: 10px;">
+                        כן! אני רוצה לשריין את המקום שלי בהרצאה
+                        <i data-lucide="arrow-left"></i>
+                    </button>
+                </form>
+                
+                <!-- Success Message for Hero Form -->
+                <div class="success-message">
+                    <div style="color: var(--primary-green); margin-bottom: 20px;">
+                        <i data-lucide="check-circle" size="64"></i>
+                    </div>
+                    <h3>איזה כיף!</h3>
+                    <p>הפרטים נקלטו בהצלחה.</p>
+                    <p>מיד מועברת לדף התשלום...</p>
+                    <div style="margin-top: 20px;">
+                        <i data-lucide="loader" class="animate-spin"></i>
+                    </div>
+                </div>
+            </div>
 
             <!-- Image with Decor -->
             <div class="hero-visuals">
@@ -703,7 +785,7 @@
         </div>
     </section>
 
-    <!-- Registration Form Section -->
+    <!-- Registration Form Section (Original Bottom Form) -->
     <section class="form-section" id="register">
         <div class="wave-top wave">
             <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -719,40 +801,35 @@
             <p class="text-center" style="color: rgba(255,255,255,0.9); margin-bottom: 30px; font-weight: 500; font-size: 1.2rem;">מלאי פרטים למעבר לתשלום מאובטח</p>
             
             <div class="form-container">
-                <div id="form-content">
-                    <form id="leadForm" onsubmit="handleSubmit(event)">
+                <div class="form-content">
+                    <form class="lead-form" onsubmit="handleSubmit(event)">
                         <div class="form-group">
                             <label class="form-label">שם מלא</label>
-                            <input type="text" id="fullName" class="form-input" placeholder="לדוגמה: רחלי כהן">
+                            <input type="text" name="fullName" class="form-input">
                             <div class="error-msg">נא להזין שם מלא תקין (מינימום 2 אותיות)</div>
                         </div>
                         
                         <div class="form-group">
                             <label class="form-label">דואר אלקטרוני</label>
-                            <input type="email" id="email" class="form-input" placeholder="name@example.com">
+                            <input type="email" name="email" class="form-input">
                             <div class="error-msg">נא להזין כתובת אימייל תקינה</div>
                         </div>
                         
                         <div class="form-group">
                             <label class="form-label">טלפון נייד</label>
-                            <input type="tel" id="phone" class="form-input" placeholder="0501234567">
+                            <input type="tel" name="phone" class="form-input">
                             <div class="error-msg">נא להזין מספר נייד תקין (10 ספרות בדיוק)</div>
                         </div>
                         
                         <button type="submit" class="btn btn-gold" style="width: 100%; margin-top: 10px;">
-                            כן! אני רוצה להעניק לעצמי את המתנה הזו
+                            כן! אני רוצה לשריין את המקום שלי בהרצאה
                             <i data-lucide="arrow-left"></i>
                         </button>
-                        
-                        <div class="text-center" style="margin-top: 20px; font-size: 0.85rem; opacity: 0.8; color: white;">
-                            <i data-lucide="lock" size="14" style="display:inline; vertical-align:middle;"></i>
-                            הפרטים שלך בטוחים איתנו | תשלום מאובטח בתקן PCI
-                        </div>
                     </form>
                 </div>
 
                 <!-- Success Message -->
-                <div id="success-message" class="success-message">
+                <div class="success-message">
                     <div style="color: var(--primary-green); margin-bottom: 20px;">
                         <i data-lucide="check-circle" size="64"></i>
                     </div>
@@ -903,13 +980,17 @@
         const PAYMENT_URL = "https://private.invoice4u.co.il/newsite/he/clearing/public/i4u-clearing?ProductGuid=4ab07ad8-b6a6-4eb4-89e7-7b0bde35f7d9"; 
 
         // Validation Logic
-        function validateForm(name, email, phone) {
+        function validateForm(form) {
             let isValid = true;
+            
+            // Get inputs relative to the specific form
+            const nameInput = form.querySelector('input[name="fullName"]');
+            const emailInput = form.querySelector('input[name="email"]');
+            const phoneInput = form.querySelector('input[name="phone"]');
             
             // Name Validation (Letters only, min 2 chars)
             const nameRegex = /^[א-תa-zA-Z\s]{2,}$/;
-            const nameInput = document.getElementById('fullName');
-            if (!nameRegex.test(name)) {
+            if (!nameRegex.test(nameInput.value.trim())) {
                 nameInput.classList.add('error');
                 isValid = false;
             } else {
@@ -918,9 +999,8 @@
 
             // Phone Validation (Exactly 10 digits)
             const phoneRegex = /^\d{10}$/;
-            const phoneInput = document.getElementById('phone');
             // Remove dashes/spaces for check
-            const cleanPhone = phone.replace(/[-\s]/g, '');
+            const cleanPhone = phoneInput.value.trim().replace(/[-\s]/g, '');
             if (!phoneRegex.test(cleanPhone)) {
                 phoneInput.classList.add('error');
                 isValid = false;
@@ -930,8 +1010,7 @@
 
             // Email Validation (Basic Format)
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            const emailInput = document.getElementById('email');
-            if (!emailRegex.test(email)) {
+            if (!emailRegex.test(emailInput.value.trim())) {
                 emailInput.classList.add('error');
                 isValid = false;
             } else {
@@ -945,13 +1024,17 @@
         function handleSubmit(e) {
             e.preventDefault();
             
-            const name = document.getElementById('fullName').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const phone = document.getElementById('phone').value.trim();
+            const form = e.target;
+            const container = form.closest('.hero-form-box') || form.closest('.form-container');
+            const successMsg = container.querySelector('.success-message');
+            
+            if (validateForm(form)) {
+                const name = form.querySelector('input[name="fullName"]').value.trim();
+                const email = form.querySelector('input[name="email"]').value.trim();
+                const phone = form.querySelector('input[name="phone"]').value.trim();
 
-            if (validateForm(name, email, phone)) {
                 // Change Button State
-                const btn = document.querySelector('button[type="submit"]');
+                const btn = form.querySelector('button[type="submit"]');
                 const originalText = btn.innerHTML;
                 btn.innerHTML = 'שולח...';
                 btn.disabled = true;
@@ -973,8 +1056,8 @@
                 })
                 .then(response => {
                     // Success UI
-                    document.getElementById('leadForm').style.display = 'none';
-                    document.getElementById('success-message').style.display = 'block';
+                    form.style.display = 'none';
+                    successMsg.style.display = 'block';
                     lucide.createIcons();
 
                     // Redirect to Payment Page after 2 seconds
@@ -986,8 +1069,8 @@
                 .catch(error => {
                     console.error('Error:', error);
                     // Fallback success flow - even if webhook fails, we want the sale
-                    document.getElementById('leadForm').style.display = 'none';
-                    document.getElementById('success-message').style.display = 'block';
+                    form.style.display = 'none';
+                    successMsg.style.display = 'block';
                     lucide.createIcons();
                     setTimeout(() => { window.location.href = PAYMENT_URL; }, 2000);
                 })
@@ -998,7 +1081,6 @@
             }
         }
     </script>
-<script src="https://rivkaol.github.io/legal-footer.js"></script>
+
 </body>
 </html>
-
