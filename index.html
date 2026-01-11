@@ -22,7 +22,7 @@
             
             /* High Contrast Text Colors for Accessibility */
             --text-dark: #1a1a1a; 
-            --text-gray: #444444; 
+            --text-gray: #333333; /* Darkened further */
             --error-red: #d32f2f;
             
             /* UI Properties */
@@ -49,7 +49,7 @@
             color: var(--text-dark);
             line-height: 1.6;
             font-weight: 400;
-            font-size: 20px; /* גודל בסיס מוגדל לנגישות */
+            font-size: 22px; /* Base font increased significantly */
             overflow-x: hidden;
         }
 
@@ -108,7 +108,7 @@
         }
         
         .container {
-            max-width: 800px; /* רוחב קריאה אופטימלי */
+            max-width: 800px;
             margin: 0 auto;
             padding: 0 25px;
             position: relative;
@@ -122,7 +122,7 @@
         
         /* Typography Components */
         .section-title {
-            font-size: 2.4rem; /* כותרות סקשן מוגדלות */
+            font-size: 2.6rem;
             margin-bottom: 30px;
             position: relative;
             display: inline-flex;
@@ -132,8 +132,8 @@
         
         .section-title svg {
             color: var(--accent-gold);
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
         }
 
         /* Buttons - Extra Large & Touchable */
@@ -142,8 +142,8 @@
             align-items: center;
             justify-content: center;
             gap: 15px;
-            padding: 22px 35px; /* פדינג נדיב */
-            font-size: 1.4rem; /* טקסט כפתור גדול */
+            padding: 22px 35px;
+            font-size: 1.5rem;
             font-weight: 800;
             border-radius: var(--radius-btn);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -168,7 +168,7 @@
 
         /* Glassmorphism Cards */
         .glass-card {
-            background: rgba(255, 255, 255, 0.9); /* פחות שקוף לקריאות */
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-radius: var(--radius-card);
@@ -187,7 +187,7 @@
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             margin-bottom: 25px;
             max-width: 850px;
             margin-left: auto;
@@ -196,7 +196,7 @@
         }
 
         .hero .subtitle {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             color: var(--text-gray);
             margin-bottom: 40px;
             max-width: 800px;
@@ -205,10 +205,10 @@
             font-weight: 500;
         }
 
-        /* Hero Form Styles (Bright & Inviting) - Accessible */
+        /* Hero Form Styles */
         .hero-form-box {
-            background: #ffffff; /* רקע לבן מלא לקונטרסט */
-            border: 2px solid rgba(212, 175, 55, 0.3); /* גבול ברור */
+            background: #ffffff;
+            border: 2px solid rgba(212, 175, 55, 0.3);
             border-radius: 24px;
             padding: 35px;
             max-width: 500px;
@@ -227,10 +227,10 @@
 
         .hero-form-box .form-input {
             background: #fdfdfd;
-            border: 1px solid #cccccc; /* גבול כהה יותר */
+            border: 1px solid #cccccc;
             color: var(--text-dark);
-            font-size: 1.2rem; /* טקסט קלט גדול */
-            height: 60px; /* שדה גבוה יותר */
+            font-size: 1.3rem; /* Input text larger */
+            height: 65px; /* Taller input */
         }
         
         .hero-form-box .form-input:focus {
@@ -241,8 +241,15 @@
         .hero-form-box .form-label {
             color: var(--primary-green);
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1.2rem; /* Label larger */
             margin-bottom: 10px;
+        }
+
+        /* Privacy Text specifically targeted to be larger */
+        .hero-form-box .text-center {
+            font-size: 1.1rem !important; /* Larger privacy text */
+            color: var(--text-gray);
+            opacity: 1; /* Make it fully visible */
         }
 
         /* Image Wrapper */
@@ -318,9 +325,9 @@
         .pain-item {
             display: flex;
             align-items: flex-start;
-            font-size: 1.25rem; /* מוגדל */
+            font-size: 1.35rem; /* Pain points text larger */
             background: rgba(255,255,255,0.8);
-            padding: 25px;
+            padding: 30px;
             border-radius: 16px;
             border: 1px solid rgba(255,255,255,0.5);
             transition: transform 0.2s;
@@ -373,19 +380,19 @@
         
         .feature-card h3 {
             margin-bottom: 20px;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
         }
         
         .feature-card p {
-            font-size: 1.15rem;
+            font-size: 1.25rem;
         }
 
         .icon-box {
             color: var(--primary-green);
             margin-bottom: 25px;
             background: #f0f7f4;
-            width: 80px;
-            height: 80px;
+            width: 90px;
+            height: 90px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -407,8 +414,8 @@
             border: 1px solid rgba(0,0,0,0.08);
         }
         
-        .detail-box h3 { font-size: 1.4rem; }
-        .detail-box p { font-size: 1.2rem; }
+        .detail-box h3 { font-size: 1.5rem; }
+        .detail-box p { font-size: 1.3rem; }
 
         /* PRICE BOX DESIGN */
         .price-highlight-box {
@@ -433,8 +440,14 @@
             color: #fff;
             padding: 8px 30px;
             border-radius: 30px;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 700;
+        }
+        
+        /* Larger small text for price box */
+        .price-highlight-box p:last-child {
+            font-size: 1.3rem !important; /* Increased significantly */
+            color: var(--text-dark); /* Darker for readability */
         }
 
         /* FORM SECTION (Main - Green) */
@@ -468,23 +481,23 @@
         .form-label {
             display: block;
             margin-bottom: 10px;
-            font-size: 1.1rem;
-            opacity: 1; /* אטימות מלאה לקריאות */
+            font-size: 1.2rem;
+            opacity: 1;
             font-weight: 500;
         }
 
         /* Default input (for dark bg) */
         .form-input {
             width: 100%;
-            padding: 18px 25px; /* פדינג גדול */
+            padding: 18px 25px;
             border-radius: 14px;
             border: 2px solid transparent;
             font-family: 'Heebo', sans-serif;
-            font-size: 1.2rem;
-            height: 60px;
+            font-size: 1.3rem;
+            height: 65px;
             outline: none;
             transition: all 0.3s;
-            background: #ffffff; /* לבן מלא */
+            background: #ffffff;
         }
 
         .form-input:focus {
@@ -497,7 +510,7 @@
 
         .error-msg {
             color: #ffbaba;
-            font-size: 1rem;
+            font-size: 1.1rem;
             margin-top: 8px;
             display: none;
             font-weight: 500;
@@ -535,14 +548,14 @@
             padding: 25px 30px;
             border-radius: 18px;
             border: 1px solid rgba(27, 77, 62, 0.08);
-            font-size: 1.15rem;
+            font-size: 1.25rem;
         }
 
         .check-icon {
             color: var(--primary-green);
-            min-width: 28px;
-            width: 28px;
-            height: 28px;
+            min-width: 32px;
+            width: 32px;
+            height: 32px;
         }
 
         /* FAQ */
@@ -552,7 +565,7 @@
             padding: 30px;
             margin-bottom: 25px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-            border-right: 5px solid var(--accent-gold);
+            border-right: 6px solid var(--accent-gold);
         }
         .faq-q {
             font-weight: 700;
@@ -561,11 +574,11 @@
             display: flex;
             align-items: flex-start;
             gap: 15px;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
         }
         .faq-a {
-            font-size: 1.15rem;
-            padding-right: 35px; /* יישור עם הטקסט של השאלה */
+            font-size: 1.25rem;
+            padding-right: 40px;
         }
         
         /* BOTTOM CTA */
@@ -578,27 +591,30 @@
         /* Footer */
         footer {
             background: #153e32;
-            color: rgba(255,255,255,0.8);
+            color: rgba(255,255,255,0.9);
             padding: 50px 0;
             text-align: center;
-            font-size: 1rem;
+            font-size: 1.2rem; /* Footer text huge */
             position: relative;
         }
 
         /* Mobile */
         @media (max-width: 768px) {
-            body { font-size: 19px; }
+            body { font-size: 20px; }
             .hero { padding-top: 40px; }
-            .hero h1 { font-size: 2.6rem; }
+            .hero h1 { font-size: 2.8rem; }
             .hero-image-placeholder { height: 280px; }
-            .section-title { font-size: 2rem; flex-direction: column; gap: 10px; }
+            .section-title { font-size: 2.2rem; flex-direction: column; gap: 10px; }
             .glass-card { padding: 25px; }
             .check-grid { grid-template-columns: 1fr; }
             .form-section { border-radius: 0; margin: 0; }
             .form-container { padding: 30px 20px; }
             .hero-form-box { padding: 30px 20px; margin: 30px auto; }
-            .pain-item { font-size: 1.15rem; }
-            .btn { width: 100%; padding: 20px; font-size: 1.3rem; }
+            .pain-item { font-size: 1.25rem; }
+            .btn { width: 100%; padding: 20px; font-size: 1.4rem; }
+            
+            /* Ensure inputs are easy to tap on mobile */
+            .form-input { font-size: 1.2rem; height: 60px; }
         }
     </style>
 </head>
@@ -632,10 +648,15 @@
                         <div class="error-msg">נא להזין מספר נייד תקין (10 ספרות בדיוק)</div>
                     </div>
                     
-                    <button type="submit" class="btn btn-gold" style="width: 100%; margin-top: 15px;">
+                    <button type="submit" class="btn btn-gold" style="width: 100%; margin-top: 20px;">
                         כן! אני רוצה לשריין את המקום שלי בהרצאה
                         <i data-lucide="arrow-left"></i>
                     </button>
+                    
+                    <div class="text-center" style="margin-top: 20px; font-weight: 500;">
+                        <i data-lucide="lock" size="16" style="display:inline; vertical-align:middle;"></i>
+                        תשלום מאובטח | הפרטים שמורים אצלנו
+                    </div>
                 </form>
                 
                 <!-- Success Message for Hero Form -->
@@ -727,48 +748,48 @@
                     <i data-lucide="gift"></i>
                     מה את תקבלי בהרצאה?
                 </h2>
-                <p style="margin-bottom: 50px; font-size: 1.3rem;">במשך 40 דקות מרתקות תלמדי:</p>
+                <p style="margin-bottom: 50px; font-size: 1.4rem;">במשך 40 דקות מרתקות תלמדי:</p>
             </div>
             
             <div class="grid-cards">
                 <!-- Secret 1 -->
                 <div class="feature-card">
-                    <div class="icon-box"><i data-lucide="zap" size="40"></i></div>
+                    <div class="icon-box"><i data-lucide="zap" size="44"></i></div>
                     <h3>סוד מספר 1:<br>למה את תמיד עייפה</h3>
                     <p>גלי את החיבור המפתיע בין ניהול הזמן שלך למצב הרגשי והפיזי שלך.</p>
-                    <p class="font-medium text-gold" style="font-size:1.1rem; margin-top:auto;">(טיפ אחד יכול <strong>לשנות את רמת האנרגיה</strong> שלך לגמרי!)</p>
+                    <p class="font-medium text-gold" style="font-size:1.2rem; margin-top:auto;">(טיפ אחד יכול <strong>לשנות את רמת האנרגיה</strong> שלך לגמרי!)</p>
                 </div>
                 
                 <!-- Secret 2 -->
                 <div class="feature-card">
-                    <div class="icon-box"><i data-lucide="clock" size="40"></i></div>
+                    <div class="icon-box"><i data-lucide="clock" size="44"></i></div>
                     <h3>סוד מספר 2:<br>הטכניקה של 15 דקות</h3>
                     <p>איך תכנון קצר בערב יכול להפוך את כל המחרת שלך.</p>
-                    <p class="font-medium text-gold" style="font-size:1.1rem; margin-top:auto;">(ותיפטרי סוף סוף מהתחושה <strong>"לא עשיתי כלום היום"</strong>)</p>
+                    <p class="font-medium text-gold" style="font-size:1.2rem; margin-top:auto;">(ותיפטרי סוף סוף מהתחושה <strong>"לא עשיתי כלום היום"</strong>)</p>
                 </div>
 
                 <!-- Secret 3 -->
                 <div class="feature-card">
-                    <div class="icon-box"><i data-lucide="gem" size="40"></i></div>
+                    <div class="icon-box"><i data-lucide="gem" size="44"></i></div>
                     <h3>סוד מספר 3:<br>איך למצוא את ה"יהלומים"</h3>
                     <p>הטכניקה שתגלה לך איפה באמת כדאי לך להשקיע את הזמן.</p>
-                    <p class="font-medium text-gold" style="font-size:1.1rem; margin-top:auto;">(תדעי בדיוק מה באמת משנה ומה רק גוזל לך אנרגיה)</p>
+                    <p class="font-medium text-gold" style="font-size:1.2rem; margin-top:auto;">(תדעי בדיוק מה באמת משנה ומה רק גוזל לך אנרגיה)</p>
                 </div>
 
                 <!-- Secret 4 -->
                 <div class="feature-card">
-                    <div class="icon-box"><i data-lucide="lightbulb" size="40"></i></div>
+                    <div class="icon-box"><i data-lucide="lightbulb" size="44"></i></div>
                     <h3>סוד מספר 4:<br>הטריק שחוסך תסכול</h3>
                     <p>איך להימנע מהטעויות שכולן עושות ולהגיע למטרה מהר יותר.</p>
-                    <p class="font-medium text-gold" style="font-size:1.1rem; margin-top:auto;">(ותפסיקי לבזבז זמן על ניסוי וטעייה)</p>
+                    <p class="font-medium text-gold" style="font-size:1.2rem; margin-top:auto;">(ותפסיקי לבזבז זמן על ניסוי וטעייה)</p>
                 </div>
 
                 <!-- Secret 5 -->
                 <div class="feature-card">
-                    <div class="icon-box"><i data-lucide="sparkles" size="40"></i></div>
+                    <div class="icon-box"><i data-lucide="sparkles" size="44"></i></div>
                     <h3>סוד מספר 5:<br>כוח הבחירות הקטנות</h3>
                     <p>איך 10 דקות ביום יכולות לשנות את כל החיים שלך.</p>
-                    <p class="font-medium text-gold" style="font-size:1.1rem; margin-top:auto;">(סיפורים מעוררי השראה של נשים בדיוק כמוך!)</p>
+                    <p class="font-medium text-gold" style="font-size:1.2rem; margin-top:auto;">(סיפורים מעוררי השראה של נשים בדיוק כמוך!)</p>
                 </div>
             </div>
         </div>
@@ -785,22 +806,22 @@
             </div>
             <div class="details-grid">
                 <div class="detail-box">
-                    <i data-lucide="map-pin" class="text-gold" style="margin-bottom: 15px;" size="32"></i>
+                    <i data-lucide="map-pin" class="text-gold" style="margin-bottom: 15px;" size="36"></i>
                     <h3>היכן?</h3>
                     <p>אונליין בזום<br>(מהנוחות של הבית!)</p>
                 </div>
                 <div class="detail-box">
-                    <i data-lucide="calendar" class="text-gold" style="margin-bottom: 15px;" size="32"></i>
+                    <i data-lucide="calendar" class="text-gold" style="margin-bottom: 15px;" size="36"></i>
                     <h3>מתי?</h3>
                     <p>יום רביעי, 14.1<br>בשעה 20:00</p>
                 </div>
                 <div class="detail-box">
-                    <i data-lucide="clock" class="text-gold" style="margin-bottom: 15px;" size="32"></i>
+                    <i data-lucide="clock" class="text-gold" style="margin-bottom: 15px;" size="36"></i>
                     <h3>כמה זמן?</h3>
                     <p>40 דקות מרתקות</p>
                 </div>
                 <div class="detail-box">
-                    <i data-lucide="video" class="text-gold" style="margin-bottom: 15px;" size="32"></i>
+                    <i data-lucide="video" class="text-gold" style="margin-bottom: 15px;" size="36"></i>
                     <h3>לא יכולה להגיע?</h3>
                     <p>תקבלי הקלטה!</p>
                 </div>
@@ -809,7 +830,7 @@
             <div class="price-highlight-box">
                 <div class="price-badge">השקעה סימלית</div>
                 <p style="font-size: 5rem; font-weight: 700; color: var(--primary-green); line-height:1; margin: 30px 0;">37 ₪</p>
-                <p style="font-size: 1.2rem; color: var(--text-gray);">חישבי על זה: 37 ₪ זה פחות מקפה ועוגה בבית קפה...<br>אבל התובנות מההרצאה ילוו אותך שנים!</p>
+                <p style="font-size: 1.3rem; color: var(--text-dark);">חישבי על זה: 37 ₪ זה פחות מקפה ועוגה בבית קפה...<br>אבל התובנות מההרצאה ילוו אותך שנים!</p>
             </div>
         </div>
     </section>
@@ -850,10 +871,15 @@
                             <div class="error-msg">נא להזין מספר נייד תקין (10 ספרות בדיוק)</div>
                         </div>
                         
-                        <button type="submit" class="btn btn-gold" style="width: 100%; margin-top: 15px;">
+                        <button type="submit" class="btn btn-gold" style="width: 100%; margin-top: 20px;">
                             כן! אני רוצה לשריין את המקום שלי בהרצאה
                             <i data-lucide="arrow-left"></i>
                         </button>
+                        
+                        <div class="text-center" style="margin-top: 20px; font-weight: 500; color: #fff; font-size: 1.1rem;">
+                            <i data-lucide="lock" size="18" style="display:inline; vertical-align:middle;"></i>
+                            תשלום מאובטח | הפרטים שמורים אצלנו
+                        </div>
                     </form>
                 </div>
 
@@ -924,7 +950,7 @@
                 <i data-lucide="quote" style="position: absolute; top: 30px; right: 30px; opacity: 0.1; width: 60px; height: 60px; color: var(--primary-green);"></i>
                 <div class="text-center" style="margin-bottom: 30px;">
                     <i data-lucide="mail-open" color="var(--accent-gold)" size="40"></i>
-                    <h3 style="color: var(--primary-green); margin-top:10px; font-size: 2rem;">מסר אישי ממני אליך</h3>
+                    <h3 style="color: var(--primary-green); margin-top:10px; font-size: 2.2rem;">מסר אישי ממני אליך</h3>
                 </div>
                 <p>יקרה,</p>
                 <br>
@@ -934,9 +960,9 @@
                 <p>אבל דעי לך - <strong>40 דקות האלה יכולות לשנות את איך שאת חיה</strong> את כל השנים הבאות.</p>
                 <p>זו לא עוד הרצאה על "איך להיות יותר פרודוקטיבית". זו הזדמנות לגלות מחדש את עצמך. להבין שמגיע לך להיות מאושרת. ללמוד איך לחיות, לא רק לרוץ.</p>
                 <br>
-                <p>אני מזמינה אותך להעניק לעצמך את המתנה הזו. בואי, זה יהיה נפלא. <i data-lucide="heart" size="22" fill="var(--accent-gold)" color="var(--accent-gold)"></i></p>
+                <p>אני מזמינה אותך להעניק לעצמך את המתנה הזו. בואי, זה יהיה נפלא. <i data-lucide="heart" size="24" fill="var(--accent-gold)" color="var(--accent-gold)"></i></p>
                 <div class="text-center mt-4">
-                    <span style="font-family: 'Rubik', sans-serif; font-size: 1.6rem; color: var(--accent-gold); font-weight:500;">בברכה וחיבוק</span>
+                    <span style="font-family: 'Rubik', sans-serif; font-size: 1.8rem; color: var(--accent-gold); font-weight:500;">בברכה וחיבוק</span>
                 </div>
             </div>
         </div>
@@ -952,19 +978,19 @@
                 </h2>
             </div>
             <div class="faq-item">
-                <div class="faq-q"><i data-lucide="chevron-left" size="24" color="var(--accent-gold)"></i> האם ההרצאה באמת בשבילי?</div>
+                <div class="faq-q"><i data-lucide="chevron-left" size="28" color="var(--accent-gold)"></i> האם ההרצאה באמת בשבילי?</div>
                 <div class="faq-a">אם את בגיל 50+ ומרגישה שהזמן בורח לך, שאת עייפה, או שפשוט רוצה יותר זמן לעצמך - זה בדיוק בשבילך!</div>
             </div>
             <div class="faq-item">
-                <div class="faq-q"><i data-lucide="chevron-left" size="24" color="var(--accent-gold)"></i> מה אם אני לא יכולה להגיע?</div>
+                <div class="faq-q"><i data-lucide="chevron-left" size="28" color="var(--accent-gold)"></i> מה אם אני לא יכולה להגיע?</div>
                 <div class="faq-a">אין בעיה! תקבלי הקלטה של ההרצאה ותוכלי לצפות בה בזמן שנוח לך.</div>
             </div>
             <div class="faq-item">
-                <div class="faq-q"><i data-lucide="chevron-left" size="24" color="var(--accent-gold)"></i> מה אם אני כבר ניסיתי הכל?</div>
+                <div class="faq-q"><i data-lucide="chevron-left" size="28" color="var(--accent-gold)"></i> מה אם אני כבר ניסיתי הכל?</div>
                 <div class="faq-a">הגישה שלנו שונה - היא לא דורשת ממך להיות "יותר ממושמעת". היא מלמדת אותך לעבוד חכם, לא קשה.</div>
             </div>
             <div class="faq-item">
-                <div class="faq-q"><i data-lucide="chevron-left" size="24" color="var(--accent-gold)"></i> האם אני צריכה להכין משהו מראש?</div>
+                <div class="faq-q"><i data-lucide="chevron-left" size="28" color="var(--accent-gold)"></i> האם אני צריכה להכין משהו מראש?</div>
                 <div class="faq-a">רק ללב פתוח ומחברת לרשימות. זהו!</div>
             </div>
         </div>
@@ -973,8 +999,8 @@
     <!-- Bottom CTA (Simple) -->
     <section class="bottom-cta-section">
         <div class="container">
-            <h2 style="margin-bottom: 25px; font-size: 2.5rem;">אל תחכי לרגע האחרון</h2>
-            <p style="margin-bottom: 35px; font-size: 1.4rem;">הצטרפי למאות נשים שכבר בחרו בעצמן</p>
+            <h2 style="margin-bottom: 25px; font-size: 2.8rem;">אל תחכי לרגע האחרון</h2>
+            <p style="margin-bottom: 35px; font-size: 1.5rem;">הצטרפי למאות נשים שכבר בחרו בעצמן</p>
             <a href="#register" class="btn btn-gold">
                 שרייני את מקומך ב-37 ₪
                 <i data-lucide="arrow-up"></i>
@@ -991,7 +1017,7 @@
         </div>
         <div class="container" style="padding-top: 50px;">
             <p>© כל הזכויות שמורות | רבקה הולצברג בריאות שבאה מהטבע | 2026</p>
-            <div style="margin-top: 20px; opacity: 0.8; display: flex; justify-content: center; gap: 25px; font-size: 1.1rem;">
+            <div style="margin-top: 20px; opacity: 0.9; display: flex; justify-content: center; gap: 25px; font-size: 1.2rem;">
                 <a href="#" style="color:white">תקנון</a> | 
                 <a href="#" style="color:white">הצהרת נגישות</a> | 
                 <a href="#" style="color:white">צור קשר</a>
