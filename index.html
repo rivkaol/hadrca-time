@@ -255,7 +255,7 @@
         .hero-form-box .security-text { color: var(--text-dark); }
         .form-section .security-text { color: #ffffff; }
 
-        /* Image Wrapper */
+        /* FRAMED IMAGE WRAPPER (Updated) */
         .hero-visuals {
             position: relative;
             max-width: 800px;
@@ -263,11 +263,20 @@
             z-index: 1;
         }
         
+        .image-frame {
+            padding: 15px; /* עובי המסגרת הלבנה */
+            background-color: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(27, 77, 62, 0.15); /* צללית עמוקה ורכה */
+            border: 1px solid rgba(0,0,0,0.05);
+            width: 100%;
+        }
+
         .hero-image-placeholder {
             width: 100%;
             height: 450px;
             background-color: #f0f4f3;
-            border-radius: var(--radius-img);
+            border-radius: 16px; /* רדיוס פנימי */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -275,8 +284,6 @@
             color: var(--primary-green);
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(27, 77, 62, 0.1);
-            box-shadow: var(--shadow-soft);
         }
         
         .hero-image-placeholder img {
@@ -292,7 +299,7 @@
             position: relative;
         }
 
-        /* Wave Dividers */
+        /* Wave Dividers - Updated for Smooth Look */
         .wave-bottom {
             position: absolute;
             bottom: -1px;
@@ -300,8 +307,8 @@
             width: 100%;
             overflow: hidden;
             line-height: 0;
-            transform: rotate(180deg);
         }
+        
         .wave-top {
             position: absolute;
             top: -1px;
@@ -309,13 +316,16 @@
             width: 100%;
             overflow: hidden;
             line-height: 0;
+            transform: rotate(180deg);
         }
+
         .wave svg {
             position: relative;
             display: block;
             width: calc(100% + 1.3px);
-            height: 70px;
+            height: 60px; /* קצת יותר עדין */
         }
+        
         .wave-fill-white { fill: #FFFFFF; }
         .wave-fill-cream { fill: var(--bg-cream); }
 
@@ -323,14 +333,13 @@
         .pain-list {
             display: grid;
             gap: 25px;
-            /* אופציונלי: אם תרצי שהכרטיסיות יהיו בשורות של 2 או 3 במסכים רחבים, אפשר להוסיף כאן grid-template-columns */
         }
         
         .pain-item {
             display: flex;
-            align-items: center; /* מרכוז האייקון לרוחב */
-            flex-direction: column; /* סידור אנכי: אייקון מעל טקסט */
-            text-align: center; /* מרכוז הטקסט */
+            align-items: center; /* Centered Icon */
+            flex-direction: column; /* Vertical Layout */
+            text-align: center; /* Centered Text */
             font-size: 1.4rem;
             background: #ffffff;
             padding: 30px;
@@ -350,10 +359,9 @@
         .pain-icon-wrapper {
             color: var(--accent-gold);
             background: rgba(212, 175, 55, 0.1);
-            padding: 15px; /* הגדלתי מעט את הרקע של האייקון */
+            padding: 15px;
             border-radius: 50%;
-            margin-left: 0; /* ביטול הרווח הצידי */
-            margin-bottom: 20px; /* רווח תחתון בין האייקון לטקסט */
+            margin-bottom: 20px;
             flex-shrink: 0;
             display: flex;
             align-items: center;
@@ -664,8 +672,8 @@
                 display: flex;
                 flex-direction: column;
             }
-            .image-container { order: 1; margin-bottom: 20px; }
-            .form-box { order: 2; margin-top: 20px; }
+            .hero-visuals { order: 1; margin-bottom: 20px; }
+            .hero-form-box { order: 2; margin-top: 20px; }
             .hero h1, .hero .subtitle { order: 0; }
         }
     </style>
@@ -682,9 +690,13 @@
                 תגלי איך לעשות יותר מהדברים שאת אוהבת, ופחות מהדברים שמתישים אותך
             </p>
             
-            <!-- Image (Proportional) - Above Form on Mobile -->
-            <div class="image-container">
-                <img src="photo.png" alt="אישה רגועה בגינה" onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#e0e5e4'; this.parentElement.innerHTML='<div style=\'text-align:center; color:#1B4D3E; font-weight:700;\'>[תמונה: אישה כבת 50+ רגועה]</div>'">
+            <!-- Image with Frame - Above Form on Mobile -->
+            <div class="hero-visuals">
+                <div class="image-frame">
+                    <div class="hero-image-placeholder">
+                        <img src="photo.png" alt="אישה רגועה בגינה" onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#e0e5e4'; this.parentElement.innerHTML='<div style=\'text-align:center; color:#1B4D3E; font-weight:700;\'>[תמונה: אישה כבת 50+ רגועה]</div>'">
+                    </div>
+                </div>
             </div>
 
             <!-- Hero Form (Bright - White BG) -->
@@ -734,10 +746,10 @@
             </div>
         </div>
         
-        <!-- Wave Divider Bottom -->
+        <!-- Wave Divider Bottom - Smooth Curve -->
         <div class="wave-bottom wave">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="wave-fill-white"></path>
+            <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path fill="#ffffff" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,250.7C960,235,1056,181,1152,165.3C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
             </svg>
         </div>
     </section>
@@ -752,28 +764,26 @@
                 </h2>
             </div>
             
-            <div class="glass-card">
-                <div class="pain-list">
-                    <div class="pain-item">
-                        <div class="pain-icon-wrapper"><i data-lucide="list-x" size="28"></i></div>
-                        <p>כל יום את קמה עם <strong>רשימה של דברים לעשות</strong>, אבל בסוף היום לא עשית אף אחד מהדברים שבאמת חשובים לך?</p>
-                    </div>
-                    <div class="pain-item">
-                        <div class="pain-icon-wrapper"><i data-lucide="battery-low" size="28"></i></div>
-                        <p>את תמיד זמינה לכולם (ילדים, נכדים) אבל <strong>אף פעם אין לך זמן לעצמך?</strong></p>
-                    </div>
-                    <div class="pain-item">
-                        <div class="pain-icon-wrapper"><i data-lucide="hourglass" size="28"></i></div>
-                        <p>את מרגישה שהימים פשוט חולפים, ואת <strong>עייפה כל הזמן</strong>, אבל לא יודעת למה?</p>
-                    </div>
-                    <div class="pain-item">
-                        <div class="pain-icon-wrapper"><i data-lucide="book-x" size="28"></i></div>
-                        <p>יש לך חלומות – תחביב, ספר שרצית לקרוא – אבל <strong>"אין זמן"?</strong></p>
-                    </div>
-                    <div class="pain-item">
-                        <div class="pain-icon-wrapper"><i data-lucide="heart-crack" size="28"></i></div>
-                        <p>את מרגישה אשמה כשאת עושה משהו בשבילך, כי "אולי צריכה לעזור למישהו"?</p>
-                    </div>
+            <div class="pain-list">
+                <div class="pain-item">
+                    <div class="pain-icon-wrapper"><i data-lucide="list-x" size="28"></i></div>
+                    <p>כל יום את קמה עם <strong>רשימה של דברים לעשות</strong>, אבל בסוף היום לא עשית אף אחד מהדברים שבאמת חשובים לך?</p>
+                </div>
+                <div class="pain-item">
+                    <div class="pain-icon-wrapper"><i data-lucide="battery-low" size="28"></i></div>
+                    <p>את תמיד זמינה לכולם (ילדים, נכדים) אבל <strong>אף פעם אין לך זמן לעצמך?</strong></p>
+                </div>
+                <div class="pain-item">
+                    <div class="pain-icon-wrapper"><i data-lucide="hourglass" size="28"></i></div>
+                    <p>את מרגישה שהימים פשוט חולפים, ואת <strong>עייפה כל הזמן</strong>, אבל לא יודעת למה?</p>
+                </div>
+                <div class="pain-item">
+                    <div class="pain-icon-wrapper"><i data-lucide="book-x" size="28"></i></div>
+                    <p>יש לך חלומות – תחביב, ספר שרצית לקרוא – אבל <strong>"אין זמן"?</strong></p>
+                </div>
+                <div class="pain-item">
+                    <div class="pain-icon-wrapper"><i data-lucide="heart-crack" size="28"></i></div>
+                    <p>את מרגישה אשמה כשאת עושה משהו בשבילך, כי "אולי צריכה לעזור למישהו"?</p>
                 </div>
             </div>
             
@@ -857,19 +867,24 @@
                 <h2 class="section-title">פרטי ההרצאה</h2>
             </div>
             
-            <div class="grid-cards" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
-                <div class="feature-card" style="padding: 20px;">
-                    <i data-lucide="map-pin" class="text-gold" size="36" style="margin-bottom: 10px;"></i>
+            <div class="details-grid">
+                <div class="detail-box">
+                    <i data-lucide="map-pin" class="text-gold" style="margin-bottom: 15px;" size="36"></i>
                     <h3>היכן?</h3>
-                    <p>אונליין בזום (מהבית)</p>
+                    <p>אונליין בזום<br>(מהנוחות של הבית!)</p>
                 </div>
-                <div class="feature-card" style="padding: 20px;">
-                    <i data-lucide="calendar" class="text-gold" size="36" style="margin-bottom: 10px;"></i>
+                <div class="detail-box">
+                    <i data-lucide="calendar" class="text-gold" style="margin-bottom: 15px;" size="36"></i>
                     <h3>מתי?</h3>
                     <p>יום רביעי, 14.1<br>בשעה 20:00</p>
                 </div>
-                <div class="feature-card" style="padding: 20px;">
-                    <i data-lucide="video" class="text-gold" size="36" style="margin-bottom: 10px;"></i>
+                <div class="detail-box">
+                    <i data-lucide="clock" class="text-gold" style="margin-bottom: 15px;" size="36"></i>
+                    <h3>כמה זמן?</h3>
+                    <p>40 דקות מרתקות</p>
+                </div>
+                <div class="detail-box">
+                    <i data-lucide="video" class="text-gold" style="margin-bottom: 15px;" size="36"></i>
                     <h3>לא יכולה להגיע?</h3>
                     <p>תקבלי הקלטה!</p>
                 </div>
@@ -886,8 +901,8 @@
     <!-- Registration Form Section (Bottom - Dark Green BG) -->
     <section class="form-section" id="register">
         <div class="wave-top wave">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="wave-fill-white"></path>
+            <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path fill="#ffffff" fill-opacity="1" d="M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,85.3C672,75,768,85,864,112C960,139,1056,181,1152,192C1248,203,1344,181,1392,170.7L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
             </svg>
         </div>
 
@@ -946,11 +961,7 @@
             </div>
         </div>
 
-        <div class="wave-bottom wave">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="wave-fill-cream"></path>
-            </svg>
-        </div>
+        <!-- No Bottom Wave needed here as it's the end of content before footer removal -->
     </section>
 
     <!-- Target Audience -->
@@ -1160,6 +1171,6 @@
             }
         }
     </script>
-
+<script src="https://rivkaol.github.io/legal-footer.js"></script>
 </body>
 </html>
