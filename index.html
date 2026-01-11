@@ -21,8 +21,8 @@
             --bg-cream: #F8F9FA;
             
             /* High Contrast Text Colors for Accessibility */
-            --text-dark: #000000; /* שחור מוחלט */
-            --text-gray: #222222; /* אפור כהה מאוד - כמעט שחור */
+            --text-dark: #000000; 
+            --text-gray: #222222; 
             --error-red: #d32f2f;
             
             /* UI Properties */
@@ -49,7 +49,7 @@
             color: var(--text-dark);
             line-height: 1.6;
             font-weight: 400;
-            font-size: 22px; /* גודל בסיס ענק */
+            font-size: 22px; /* גודל בסיס מוגדל לנגישות */
             overflow-x: hidden;
         }
 
@@ -72,25 +72,12 @@
             color: var(--primary-green);
         }
 
-        /* Special Highlight Effect */
+        /* Hero Highlight */
         .hero-highlight {
+            color: var(--accent-gold);
             font-weight: 800;
-            font-size: 1.1em;
-            background: linear-gradient(to right, #b88a00 0%, #F6E27A 50%, #b88a00 100%);
-            background-size: 200% auto;
-            color: #000;
-            background-clip: text;
-            text-fill-color: transparent;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shine 4s linear infinite;
-            display: inline-block;
-        }
-
-        @keyframes shine {
-            to {
-                background-position: 200% center;
-            }
+            font-size: 1.15em;
+            text-shadow: 0 2px 10px rgba(212, 175, 55, 0.2);
         }
         
         .font-medium {
@@ -178,12 +165,20 @@
             margin-bottom: 30px;
         }
 
-        /* HERO SECTION */
+        /* HERO SECTION with Animation */
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
         .hero {
             padding: 60px 0 120px;
             text-align: center;
             position: relative;
-            background: linear-gradient(to bottom, #fff 0%, var(--bg-cream) 100%);
+            background: linear-gradient(-45deg, #ffffff, #f0fdf4, #fffbeb, #ffffff);
+            background-size: 400% 400%;
+            animation: gradientMove 15s ease infinite;
         }
 
         .hero h1 {
@@ -196,7 +191,7 @@
         }
 
         .hero .subtitle {
-            font-size: 1.6rem; /* הוגדל */
+            font-size: 1.6rem;
             color: var(--text-gray);
             margin-bottom: 40px;
             max-width: 800px;
@@ -205,7 +200,7 @@
             font-weight: 500;
         }
 
-        /* Hero Form Styles */
+        /* Hero Form Styles (Top Form - Light) */
         .hero-form-box {
             background: #ffffff;
             border: 2px solid rgba(212, 175, 55, 0.3);
@@ -241,18 +236,24 @@
         .hero-form-box .form-label {
             color: var(--primary-green);
             font-weight: 700;
-            font-size: 1.3rem; /* הוגדל */
+            font-size: 1.3rem;
             margin-bottom: 10px;
         }
 
         /* Security Text */
         .security-text {
-            font-size: 1.2rem !important; /* הוגדל משמעותית */
-            color: var(--text-dark) !important; /* צבע כהה */
+            font-size: 1.2rem !important;
             opacity: 1 !important;
             font-weight: 500;
             margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
+        
+        .hero-form-box .security-text { color: var(--text-dark); }
+        .form-section .security-text { color: #ffffff; }
 
         /* Image Wrapper */
         .hero-visuals {
@@ -322,23 +323,25 @@
         .pain-list {
             display: grid;
             gap: 25px;
+            /* אופציונלי: אם תרצי שהכרטיסיות יהיו בשורות של 2 או 3 במסכים רחבים, אפשר להוסיף כאן grid-template-columns */
         }
         
         .pain-item {
             display: flex;
-            align-items: flex-start;
-            font-size: 1.4rem; /* הוגדל */
-            background: #ffffff; /* רקע לבן נקי */
+            align-items: center; /* מרכוז האייקון לרוחב */
+            flex-direction: column; /* סידור אנכי: אייקון מעל טקסט */
+            text-align: center; /* מרכוז הטקסט */
+            font-size: 1.4rem;
+            background: #ffffff;
             padding: 30px;
-            border-radius: 20px; /* פינות מעוגלות יותר */
+            border-radius: 20px;
             border: 1px solid rgba(27, 77, 62, 0.1);
             box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease;
         }
         
         .pain-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(27, 77, 62, 0.08);
             border-color: var(--accent-gold);
         }
         
@@ -347,9 +350,10 @@
         .pain-icon-wrapper {
             color: var(--accent-gold);
             background: rgba(212, 175, 55, 0.1);
-            padding: 12px;
+            padding: 15px; /* הגדלתי מעט את הרקע של האייקון */
             border-radius: 50%;
-            margin-left: 25px;
+            margin-left: 0; /* ביטול הרווח הצידי */
+            margin-bottom: 20px; /* רווח תחתון בין האייקון לטקסט */
             flex-shrink: 0;
             display: flex;
             align-items: center;
@@ -384,30 +388,71 @@
         
         .feature-card h3 {
             margin-bottom: 20px;
-            font-size: 1.6rem; /* הוגדל */
+            font-size: 1.6rem;
         }
         
         .feature-card p {
-            font-size: 1.35rem; /* הוגדל */
+            font-size: 1.35rem;
         }
         
         /* Highlighted small text inside cards */
         .feature-card .text-gold {
-            font-size: 1.25rem !important; /* הוגדל משמעותית */
+            font-size: 1.25rem !important;
             font-weight: 700;
-            color: #b88a00 !important; /* זהב כהה יותר לקריאות */
+            color: #b88a00 !important;
         }
 
-        .icon-box {
-            color: var(--primary-green);
-            margin-bottom: 25px;
-            background: #f0f7f4;
-            width: 90px;
-            height: 90px;
+        /* COOL ICON CIRCLE EFFECT */
+        .secret-icon-circle {
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
+            background: #ffffff;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+            /* Cool Border Effect using Box Shadow */
+            box-shadow: 
+                0 0 0 8px rgba(27, 77, 62, 0.05), /* Outer ring light green */
+                0 0 0 1px rgba(212, 175, 55, 0.3), /* Thin gold border */
+                0 10px 25px rgba(0,0,0,0.05); /* Drop shadow */
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .secret-icon-circle::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 50%;
+            border: 2px solid var(--accent-gold);
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.4s ease;
+        }
+
+        .feature-card:hover .secret-icon-circle {
+            transform: translateY(-5px);
+            box-shadow: 
+                0 0 0 12px rgba(212, 175, 55, 0.1), 
+                0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .feature-card:hover .secret-icon-circle::after {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        
+        .secret-icon-circle svg {
+            color: var(--primary-green);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover .secret-icon-circle svg {
+            color: var(--accent-gold);
+            transform: scale(1.1);
         }
 
         /* DETAILS GRID */
@@ -451,18 +496,18 @@
             color: #fff;
             padding: 10px 35px;
             border-radius: 30px;
-            font-size: 1.3rem; /* הוגדל */
+            font-size: 1.3rem;
             font-weight: 700;
         }
         
         /* Larger small text for price box */
         .price-highlight-box p:last-child {
-            font-size: 1.4rem !important; /* הוגדל משמעותית */
-            color: var(--text-dark); /* כהה לקריאות */
+            font-size: 1.4rem !important;
+            color: var(--text-dark);
             line-height: 1.5;
         }
 
-        /* FORM SECTION (Main - Green) */
+        /* FORM SECTION (Main Bottom - Green BG) */
         .form-section {
             background: var(--primary-green);
             color: white;
@@ -493,7 +538,7 @@
         .form-label {
             display: block;
             margin-bottom: 10px;
-            font-size: 1.3rem; /* הוגדל */
+            font-size: 1.3rem;
             opacity: 1;
             font-weight: 500;
         }
@@ -522,7 +567,7 @@
 
         .error-msg {
             color: #ffbaba;
-            font-size: 1.2rem; /* הוגדל */
+            font-size: 1.2rem;
             margin-top: 8px;
             display: none;
             font-weight: 500;
@@ -560,7 +605,7 @@
             padding: 25px 30px;
             border-radius: 18px;
             border: 1px solid rgba(27, 77, 62, 0.08);
-            font-size: 1.35rem; /* הוגדל */
+            font-size: 1.35rem;
         }
 
         .check-icon {
@@ -586,10 +631,10 @@
             display: flex;
             align-items: flex-start;
             gap: 15px;
-            font-size: 1.5rem; /* הוגדל */
+            font-size: 1.5rem;
         }
         .faq-a {
-            font-size: 1.35rem; /* הוגדל */
+            font-size: 1.35rem;
             padding-right: 40px;
         }
         
@@ -600,26 +645,28 @@
             padding: 80px 0;
         }
 
-        /* Footer */
-        /* Footer Removed */
+        /* Mobile Adjustments */
+        .mobile-br {
+            display: none;
+        }
 
-        /* Mobile */
         @media (max-width: 768px) {
             body { font-size: 20px; }
-            .hero { padding-top: 40px; }
             .hero h1 { font-size: 2.8rem; }
-            .hero-image-placeholder { height: 280px; }
-            .section-title { font-size: 2.2rem; flex-direction: column; gap: 10px; }
-            .glass-card { padding: 25px; }
-            .check-grid { grid-template-columns: 1fr; }
-            .form-section { border-radius: 0; margin: 0; }
-            .form-container { padding: 30px 20px; }
-            .hero-form-box { padding: 30px 20px; margin: 30px auto; }
+            .form-box { padding: 30px 20px; }
+            .btn { font-size: 1.4rem; padding: 20px; width: 100%; white-space: normal; height: auto; }
+            .grid-cards { grid-template-columns: 1fr; }
             .pain-item { font-size: 1.3rem; }
-            .btn { width: 100%; padding: 20px; font-size: 1.5rem; }
+            .mobile-br { display: block; }
             
-            /* Ensure inputs are easy to tap on mobile */
-            .form-input { font-size: 1.3rem; height: 60px; }
+            /* Order change in mobile: Image above Form */
+            .hero .container {
+                display: flex;
+                flex-direction: column;
+            }
+            .image-container { order: 1; margin-bottom: 20px; }
+            .form-box { order: 2; margin-top: 20px; }
+            .hero h1, .hero .subtitle { order: 0; }
         }
     </style>
 </head>
@@ -629,11 +676,20 @@
     <section class="hero">
         <div class="container">
             <h1>תפסיקו לרוץ <br>והתחילו לחיות!</h1>
-            <p class="subtitle">הרצאה מרתקת על <span class="hero-highlight">ניהול זמן לנשים מדהימות בגיל 50+</span><br>תגלי איך לעשות יותר מהדברים שאת אוהבת, ופחות מהדברים שמתישים אותך</p>
             
-            <!-- Hero Form (Bright & Inviting) -->
+            <p class="subtitle">
+                הרצאה מרתקת על <span class="hero-highlight">ניהול זמן לנשים מדהימות בגיל 50+</span><br>
+                תגלי איך לעשות יותר מהדברים שאת אוהבת, ופחות מהדברים שמתישים אותך
+            </p>
+            
+            <!-- Image (Proportional) - Above Form on Mobile -->
+            <div class="image-container">
+                <img src="photo.png" alt="אישה רגועה בגינה" onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#e0e5e4'; this.parentElement.innerHTML='<div style=\'text-align:center; color:#1B4D3E; font-weight:700;\'>[תמונה: אישה כבת 50+ רגועה]</div>'">
+            </div>
+
+            <!-- Hero Form (Bright - White BG) -->
             <div class="hero-form-box">
-                <h3>הבטיחי את מקומך בהרצאה</h3>
+                <h3>אני רוצה להבטיח את מקומי בהרצאה</h3>
                 <form class="lead-form" onsubmit="handleSubmit(event)">
                     <div class="form-group">
                         <label class="form-label">שם מלא</label>
@@ -653,41 +709,26 @@
                         <div class="error-msg">נא להזין מספר נייד תקין (10 ספרות בדיוק)</div>
                     </div>
                     
-                    <button type="submit" class="btn btn-gold" style="width: 100%; margin-top: 15px;">
-                        כן! אני רוצה לשריין את המקום שלי בהרצאה
-                        <i data-lucide="arrow-left"></i>
+                    <button type="submit" class="btn btn-gold">
+                        כן! אני רוצה להירשם עכשיו
                     </button>
                     
-                    <div class="text-center security-text">
-                        <i data-lucide="lock" size="18" style="display:inline; vertical-align:middle;"></i>
-                        תשלום מאובטח | הפרטים שמורים אצלנו
+                    <div class="security-text">
+                        <i data-lucide="lock" size="20"></i>
+                        פרטייך חסויים ושמורים אצלנו
                     </div>
                 </form>
                 
-                <!-- Success Message for Hero Form -->
+                <!-- Success Message -->
                 <div class="success-message">
-                    <div style="color: var(--primary-green); margin-bottom: 20px;">
-                        <i data-lucide="check-circle" size="70"></i>
+                    <div style="margin-bottom: 20px;">
+                        <i data-lucide="check-circle" size="80" color="#1B4D3E"></i>
                     </div>
                     <h3>איזה כיף!</h3>
-                    <p>הפרטים נקלטו בהצלחה.</p>
-                    <p>מיד מועברת לדף התשלום...</p>
-                    <div style="margin-top: 20px;">
-                        <i data-lucide="loader" class="animate-spin" size="32"></i>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Image with Decor -->
-            <div class="hero-visuals">
-                <div class="hero-image-placeholder">
-                    <!-- תמונה אמיתית - photo.png -->
-                    <img src="photo.png" alt="אישה רגועה בגינה - ניהול זמן לנשים" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                    
-                    <!-- Fallback if photo.png is missing -->
-                    <div style="display:none; flex-direction:column; align-items:center; justify-content:center; width:100%; height:100%; position:absolute; top:0; left:0;">
-                         <i data-lucide="image" size="64" stroke-width="1" style="opacity:0.3; margin-bottom:20px;"></i>
-                         <div style="font-weight:500;">photo.png</div>
+                    <p style="font-size: 1.4rem;">הפרטים נקלטו בהצלחה.</p>
+                    <p style="font-size: 1.4rem;">מיד מועברת לדף התשלום...</p>
+                    <div style="margin-top: 30px;">
+                        <i data-lucide="loader" class="animate-spin" size="40"></i>
                     </div>
                 </div>
             </div>
@@ -702,11 +743,11 @@
     </section>
 
     <!-- Pain Points -->
-    <section style="background: #fff;">
+    <section class="pain-section">
         <div class="container">
             <div class="text-center">
                 <h2 class="section-title">
-                    <i data-lucide="frown"></i>
+                    <i data-lucide="frown" size="40" class="text-gold"></i>
                     האם את מרגישה ככה?
                 </h2>
             </div>
@@ -719,7 +760,7 @@
                     </div>
                     <div class="pain-item">
                         <div class="pain-icon-wrapper"><i data-lucide="battery-low" size="28"></i></div>
-                        <p>את תמיד זמינה לכולם - לילדים, לנכדים - אבל <strong>אף פעם אין לך זמן לעצמך?</strong></p>
+                        <p>את תמיד זמינה לכולם (ילדים, נכדים) אבל <strong>אף פעם אין לך זמן לעצמך?</strong></p>
                     </div>
                     <div class="pain-item">
                         <div class="pain-icon-wrapper"><i data-lucide="hourglass" size="28"></i></div>
@@ -727,7 +768,7 @@
                     </div>
                     <div class="pain-item">
                         <div class="pain-icon-wrapper"><i data-lucide="book-x" size="28"></i></div>
-                        <p>יש לך חלומות - תחביב, ספר שרצית לקרוא - אבל <strong>"אין זמן"?</strong></p>
+                        <p>יש לך חלומות – תחביב, ספר שרצית לקרוא – אבל <strong>"אין זמן"?</strong></p>
                     </div>
                     <div class="pain-item">
                         <div class="pain-icon-wrapper"><i data-lucide="heart-crack" size="28"></i></div>
@@ -736,30 +777,31 @@
                 </div>
             </div>
             
-            <div class="text-center">
-                <p class="font-medium" style="color: var(--primary-green); font-size: 1.6rem; display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 30px;">
-                    אם ענית "כן" אפילו לשאלה אחת - ההרצאה הזו בשבילך! 
-                    <i data-lucide="flower-2"></i>
+            <div class="text-center mt-4">
+                <p style="font-size: 1.6rem; font-weight: 700; color: var(--primary-green);">
+                    אם ענית "כן" אפילו לשאלה אחת – ההרצאה הזו בשבילך!
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Secrets / Value Proposition -->
-    <section style="background-color: var(--bg-cream);">
+    <!-- Value Proposition -->
+    <section class="grid-section">
         <div class="container">
             <div class="text-center">
                 <h2 class="section-title">
-                    <i data-lucide="gift"></i>
-                    מה את תקבלי בהרצאה?
+                    <i data-lucide="gift" size="40" class="text-gold"></i>
+                    מה תקבלי בהרצאה?
                 </h2>
-                <p style="margin-bottom: 50px; font-size: 1.5rem;">במשך 40 דקות מרתקות תלמדי:</p>
+                <p style="font-size: 1.5rem; margin-bottom: 50px;">במשך 40 דקות מרתקות תלמדי:</p>
             </div>
             
             <div class="grid-cards">
                 <!-- Secret 1 -->
                 <div class="feature-card">
-                    <div class="icon-box"><i data-lucide="zap" size="44"></i></div>
+                    <div class="secret-icon-circle">
+                        <i data-lucide="zap" size="40"></i>
+                    </div>
                     <h3>סוד מספר 1:<br>למה את תמיד עייפה</h3>
                     <p>גלי את החיבור המפתיע בין ניהול הזמן שלך למצב הרגשי והפיזי שלך.</p>
                     <p class="text-gold" style="margin-top:auto;">(טיפ אחד יכול <strong>לשנות את רמת האנרגיה</strong> שלך לגמרי!)</p>
@@ -767,7 +809,9 @@
                 
                 <!-- Secret 2 -->
                 <div class="feature-card">
-                    <div class="icon-box"><i data-lucide="clock" size="44"></i></div>
+                    <div class="secret-icon-circle">
+                        <i data-lucide="clock" size="40"></i>
+                    </div>
                     <h3>סוד מספר 2:<br>הטכניקה של 15 דקות</h3>
                     <p>איך תכנון קצר בערב יכול להפוך את כל המחרת שלך.</p>
                     <p class="text-gold" style="margin-top:auto;">(ותיפטרי סוף סוף מהתחושה <strong>"לא עשיתי כלום היום"</strong>)</p>
@@ -775,7 +819,9 @@
 
                 <!-- Secret 3 -->
                 <div class="feature-card">
-                    <div class="icon-box"><i data-lucide="gem" size="44"></i></div>
+                    <div class="secret-icon-circle">
+                        <i data-lucide="gem" size="40"></i>
+                    </div>
                     <h3>סוד מספר 3:<br>איך למצוא את ה"יהלומים"</h3>
                     <p>הטכניקה שתגלה לך איפה באמת כדאי לך להשקיע את הזמן.</p>
                     <p class="text-gold" style="margin-top:auto;">(תדעי בדיוק מה באמת משנה ומה רק גוזל לך אנרגיה)</p>
@@ -783,7 +829,9 @@
 
                 <!-- Secret 4 -->
                 <div class="feature-card">
-                    <div class="icon-box"><i data-lucide="lightbulb" size="44"></i></div>
+                    <div class="secret-icon-circle">
+                        <i data-lucide="lightbulb" size="40"></i>
+                    </div>
                     <h3>סוד מספר 4:<br>הטריק שחוסך תסכול</h3>
                     <p>איך להימנע מהטעויות שכולן עושות ולהגיע למטרה מהר יותר.</p>
                     <p class="text-gold" style="margin-top:auto;">(ותפסיקי לבזבז זמן על ניסוי וטעייה)</p>
@@ -791,7 +839,9 @@
 
                 <!-- Secret 5 -->
                 <div class="feature-card">
-                    <div class="icon-box"><i data-lucide="sparkles" size="44"></i></div>
+                    <div class="secret-icon-circle">
+                        <i data-lucide="sparkles" size="40"></i>
+                    </div>
                     <h3>סוד מספר 5:<br>כוח הבחירות הקטנות</h3>
                     <p>איך 10 דקות ביום יכולות לשנות את כל החיים שלך.</p>
                     <p class="text-gold" style="margin-top:auto;">(סיפורים מעוררי השראה של נשים בדיוק כמוך!)</p>
@@ -801,32 +851,25 @@
     </section>
 
     <!-- Details & Price -->
-    <section style="background: #fff;">
+    <section style="background: #fff; padding: 80px 0;">
         <div class="container">
             <div class="text-center">
-                <h2 class="section-title">
-                    <i data-lucide="calendar-days"></i>
-                    פרטי ההרצאה
-                </h2>
+                <h2 class="section-title">פרטי ההרצאה</h2>
             </div>
-            <div class="details-grid">
-                <div class="detail-box">
-                    <i data-lucide="map-pin" class="text-gold" style="margin-bottom: 15px;" size="36"></i>
+            
+            <div class="grid-cards" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                <div class="feature-card" style="padding: 20px;">
+                    <i data-lucide="map-pin" class="text-gold" size="36" style="margin-bottom: 10px;"></i>
                     <h3>היכן?</h3>
-                    <p>אונליין בזום<br>(מהנוחות של הבית!)</p>
+                    <p>אונליין בזום (מהבית)</p>
                 </div>
-                <div class="detail-box">
-                    <i data-lucide="calendar" class="text-gold" style="margin-bottom: 15px;" size="36"></i>
+                <div class="feature-card" style="padding: 20px;">
+                    <i data-lucide="calendar" class="text-gold" size="36" style="margin-bottom: 10px;"></i>
                     <h3>מתי?</h3>
                     <p>יום רביעי, 14.1<br>בשעה 20:00</p>
                 </div>
-                <div class="detail-box">
-                    <i data-lucide="clock" class="text-gold" style="margin-bottom: 15px;" size="36"></i>
-                    <h3>כמה זמן?</h3>
-                    <p>40 דקות מרתקות</p>
-                </div>
-                <div class="detail-box">
-                    <i data-lucide="video" class="text-gold" style="margin-bottom: 15px;" size="36"></i>
+                <div class="feature-card" style="padding: 20px;">
+                    <i data-lucide="video" class="text-gold" size="36" style="margin-bottom: 10px;"></i>
                     <h3>לא יכולה להגיע?</h3>
                     <p>תקבלי הקלטה!</p>
                 </div>
@@ -835,12 +878,12 @@
             <div class="price-highlight-box">
                 <div class="price-badge">השקעה סימלית</div>
                 <p style="font-size: 5rem; font-weight: 700; color: var(--primary-green); line-height:1; margin: 30px 0;">37 ₪</p>
-                <p>חישבי על זה: 37 ₪ זה פחות מקפה ועוגה בבית קפה...<br>אבל התובנות מההרצאה ילוו אותך שנים!</p>
+                <p style="font-size: 1.4rem; color: var(--text-dark);">חישבי על זה: 37 ₪ זה פחות מקפה ועוגה בבית קפה...<br>אבל התובנות מההרצאה ילוו אותך שנים!<br class="mobile-br"> (התמורה גדולה בהרבה)</p>
             </div>
         </div>
     </section>
 
-    <!-- Registration Form Section (Bottom) -->
+    <!-- Registration Form Section (Bottom - Dark Green BG) -->
     <section class="form-section" id="register">
         <div class="wave-top wave">
             <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -859,19 +902,19 @@
                 <div class="form-content">
                     <form class="lead-form" onsubmit="handleSubmit(event)">
                         <div class="form-group">
-                            <label class="form-label">שם מלא</label>
+                            <label class="form-label" style="color:#fff;">שם מלא</label>
                             <input type="text" name="fullName" class="form-input">
                             <div class="error-msg">נא להזין שם מלא תקין (מינימום 2 אותיות)</div>
                         </div>
                         
                         <div class="form-group">
-                            <label class="form-label">דואר אלקטרוני</label>
+                            <label class="form-label" style="color:#fff;">דואר אלקטרוני</label>
                             <input type="email" name="email" class="form-input">
                             <div class="error-msg">נא להזין כתובת אימייל תקינה</div>
                         </div>
                         
                         <div class="form-group">
-                            <label class="form-label">טלפון נייד</label>
+                            <label class="form-label" style="color:#fff;">טלפון נייד</label>
                             <input type="tel" name="phone" class="form-input">
                             <div class="error-msg">נא להזין מספר נייד תקין (10 ספרות בדיוק)</div>
                         </div>
@@ -880,6 +923,11 @@
                             כן! אני רוצה לשריין את המקום שלי בהרצאה
                             <i data-lucide="arrow-left"></i>
                         </button>
+                        
+                        <div class="security-text" style="color:#fff;">
+                            <i data-lucide="lock" size="20"></i>
+                            פרטייך חסויים ושמורים אצלנו
+                        </div>
                     </form>
                 </div>
 
@@ -968,7 +1016,7 @@
         </div>
     </section>
 
-    <!-- FAQ Section -->
+    <!-- FAQ Section (Restored Style) -->
     <section style="padding-bottom: 20px;">
         <div class="container" style="max-width: 800px;">
             <div class="text-center">
@@ -1008,16 +1056,14 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <!-- Footer Removed -->
 
     <script>
         // Initialize Lucide Icons
         lucide.createIcons();
 
-        // UPDATED WEBHOOK URL
+        // WEBHOOK URL & PAYMENT URL
         const WEBHOOK_URL = "https://hook.eu2.make.com/rln1mh63fq97le9sdegmej01k81pp68s";
-        // UPDATED PAYMENT URL (Invoice4U)
         const PAYMENT_URL = "https://private.invoice4u.co.il/newsite/he/clearing/public/i4u-clearing?ProductGuid=4ab07ad8-b6a6-4eb4-89e7-7b0bde35f7d9"; 
 
         // Validation Logic
@@ -1080,48 +1126,40 @@
                 btn.innerHTML = 'שולח...';
                 btn.disabled = true;
 
-                // Prepare Payload - Separate Fields
+                // Payload
                 const payload = {
                     "fullName": name,
                     "email": email,
                     "phone": phone
                 };
 
-                // Real Fetch to Make
+                // Fetch
                 fetch(WEBHOOK_URL, {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
                 })
                 .then(response => {
-                    // Success UI
                     form.style.display = 'none';
+                    if (container.querySelector('h3')) container.querySelector('h3').style.display = 'none'; // Hide title in top form
                     successMsg.style.display = 'block';
                     lucide.createIcons();
 
-                    // Redirect to Payment Page after 2 seconds
                     setTimeout(() => {
-                        console.log("Redirecting to: " + PAYMENT_URL);
                         window.location.href = PAYMENT_URL; 
                     }, 2000);
                 })
                 .catch(error => {
                     console.error('Error:', error);
-                    // Fallback success flow - even if webhook fails, we want the sale
+                    // Fallback
                     form.style.display = 'none';
                     successMsg.style.display = 'block';
                     lucide.createIcons();
                     setTimeout(() => { window.location.href = PAYMENT_URL; }, 2000);
-                })
-                .finally(() => {
-                     // Normally you'd reset the button here if not redirecting, 
-                     // but since we redirect or show success, we leave it.
                 });
             }
         }
     </script>
-<script src="https://rivkaol.github.io/legal-footer.js"></script>
+
 </body>
 </html>
