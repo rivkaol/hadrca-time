@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ניהול זמן לנשים - תפסיקו לרוץ והתחילו לחיות</title>
     
-    <!-- Google Fonts: Heebo + Rubik (Backup) -->
+    <!-- Google Fonts: Heebo (Primary) + Rubik (Backup) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&family=Rubik:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&family=Rubik:wght@400;500;700;900&display=swap" rel="stylesheet">
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -19,9 +19,11 @@
             --primary-green: #1B4D3E;
             --accent-gold: #D4AF37;
             --bg-cream: #F8F9FA;
-            --text-dark: #333333;
-            --text-gray: #555555;
-            --error-red: #ef4444;
+            
+            /* High Contrast Text Colors for Accessibility */
+            --text-dark: #1a1a1a; 
+            --text-gray: #444444; 
+            --error-red: #d32f2f;
             
             /* UI Properties */
             --shadow-soft: 0 20px 60px rgba(27, 77, 62, 0.08);
@@ -42,27 +44,28 @@
         }
 
         body {
-            font-family: 'Heebo', sans-serif; /* שינוי לפונט Heebo */
+            font-family: 'Heebo', sans-serif;
             background-color: var(--bg-cream);
             color: var(--text-dark);
-            line-height: 1.7;
-            font-weight: 300;
-            font-size: 18px;
+            line-height: 1.6;
+            font-weight: 400;
+            font-size: 20px; /* גודל בסיס מוגדל לנגישות */
             overflow-x: hidden;
         }
 
-        /* FORCE FONT on all form elements to prevent 'David' fallback */
-        button, input, textarea, select {
+        /* Force font on form elements */
+        input, button, select, textarea {
             font-family: 'Heebo', sans-serif !important;
         }
 
         h1, h2, h3, h4 {
             color: var(--primary-green);
-            font-weight: 800; /* Heavier weight for Heebo */
+            font-weight: 800;
             line-height: 1.2;
+            margin-bottom: 0.5em;
         }
         
-        h1 { font-weight: 900; }
+        h1 { font-weight: 900; letter-spacing: -1px; }
         
         strong {
             font-weight: 700;
@@ -71,8 +74,8 @@
 
         /* Special Highlight Effect */
         .hero-highlight {
-            font-weight: 900;
-            font-size: 1.2em;
+            font-weight: 800;
+            font-size: 1.1em;
             background: linear-gradient(to right, #b88a00 0%, #F6E27A 50%, #b88a00 100%);
             background-size: 200% auto;
             color: #000;
@@ -105,9 +108,9 @@
         }
         
         .container {
-            max-width: 900px;
+            max-width: 800px; /* רוחב קריאה אופטימלי */
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 25px;
             position: relative;
             z-index: 2;
         }
@@ -119,8 +122,8 @@
         
         /* Typography Components */
         .section-title {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
+            font-size: 2.4rem; /* כותרות סקשן מוגדלות */
+            margin-bottom: 30px;
             position: relative;
             display: inline-flex;
             align-items: center;
@@ -129,31 +132,33 @@
         
         .section-title svg {
             color: var(--accent-gold);
-            width: 32px;
-            height: 32px;
+            width: 36px;
+            height: 36px;
         }
 
-        /* Buttons */
+        /* Buttons - Extra Large & Touchable */
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            padding: 18px 45px;
-            font-size: 1.3rem;
-            font-weight: 800; /* Extra Bold */
+            gap: 15px;
+            padding: 22px 35px; /* פדינג נדיב */
+            font-size: 1.4rem; /* טקסט כפתור גדול */
+            font-weight: 800;
             border-radius: var(--radius-btn);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
             border: none;
             text-align: center;
-            letter-spacing: 0.5px; /* טיפה רווח לקריאות ב-Heebo */
+            line-height: 1.2;
         }
 
         .btn-gold {
             background: linear-gradient(135deg, var(--accent-gold) 0%, #c49f2b 100%);
             color: #ffffff;
             box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+            width: 100%;
+            white-space: normal;
         }
 
         .btn-gold:hover {
@@ -163,7 +168,7 @@
 
         /* Glassmorphism Cards */
         .glass-card {
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.9); /* פחות שקוף לקריאות */
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-radius: var(--radius-card);
@@ -182,7 +187,7 @@
         }
 
         .hero h1 {
-            font-size: 3.8rem;
+            font-size: 3.5rem;
             margin-bottom: 25px;
             max-width: 850px;
             margin-left: auto;
@@ -191,49 +196,53 @@
         }
 
         .hero .subtitle {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             color: var(--text-gray);
             margin-bottom: 40px;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+            font-weight: 500;
         }
 
-        /* Hero Form Styles (Bright & Inviting) */
+        /* Hero Form Styles (Bright & Inviting) - Accessible */
         .hero-form-box {
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 20px;
-            padding: 30px;
-            max-width: 450px;
-            margin: 30px auto 50px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+            background: #ffffff; /* רקע לבן מלא לקונטרסט */
+            border: 2px solid rgba(212, 175, 55, 0.3); /* גבול ברור */
+            border-radius: 24px;
+            padding: 35px;
+            max-width: 500px;
+            margin: 30px auto 60px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
             text-align: right;
         }
 
         .hero-form-box h3 {
             color: var(--primary-green);
             text-align: center;
-            margin-bottom: 20px;
-            font-size: 1.6rem;
-            font-weight: 700;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            font-weight: 800;
         }
 
         .hero-form-box .form-input {
-            background: #fff;
-            border: 1px solid #e0e0e0;
+            background: #fdfdfd;
+            border: 1px solid #cccccc; /* גבול כהה יותר */
             color: var(--text-dark);
+            font-size: 1.2rem; /* טקסט קלט גדול */
+            height: 60px; /* שדה גבוה יותר */
         }
         
         .hero-form-box .form-input:focus {
             border-color: var(--accent-gold);
-            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
         }
 
         .hero-form-box .form-label {
             color: var(--primary-green);
-            font-weight: 500;
-            font-size: 1rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
         }
 
         /* Image Wrapper */
@@ -246,7 +255,7 @@
         
         .hero-image-placeholder {
             width: 100%;
-            height: 400px;
+            height: 450px;
             background-color: #f0f4f3;
             border-radius: var(--radius-img);
             display: flex;
@@ -269,7 +278,7 @@
 
         /* SPACED LAYOUTS */
         section {
-            padding: 80px 0;
+            padding: 90px 0;
             position: relative;
         }
 
@@ -295,7 +304,7 @@
             position: relative;
             display: block;
             width: calc(100% + 1.3px);
-            height: 60px;
+            height: 70px;
         }
         .wave-fill-white { fill: #FFFFFF; }
         .wave-fill-cream { fill: var(--bg-cream); }
@@ -303,15 +312,15 @@
         /* PAIN POINTS */
         .pain-list {
             display: grid;
-            gap: 20px;
+            gap: 25px;
         }
         
         .pain-item {
             display: flex;
             align-items: flex-start;
-            font-size: 1.15rem;
-            background: rgba(255,255,255,0.6);
-            padding: 20px;
+            font-size: 1.25rem; /* מוגדל */
+            background: rgba(255,255,255,0.8);
+            padding: 25px;
             border-radius: 16px;
             border: 1px solid rgba(255,255,255,0.5);
             transition: transform 0.2s;
@@ -322,14 +331,14 @@
             background: #fff;
         }
         
-        .pain-item p { margin: 0; }
+        .pain-item p { margin: 0; line-height: 1.5; }
 
         .pain-icon-wrapper {
             color: var(--accent-gold);
             background: rgba(212, 175, 55, 0.1);
-            padding: 8px;
+            padding: 10px;
             border-radius: 50%;
-            margin-left: 20px;
+            margin-left: 25px;
             flex-shrink: 0;
             display: flex;
             align-items: center;
@@ -340,19 +349,20 @@
         .grid-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            gap: 35px;
         }
 
         .feature-card {
             text-align: center;
-            padding: 35px 25px;
+            padding: 40px 30px;
             height: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
             background: #fff;
-            border: 1px solid rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.08);
             transition: all 0.3s ease;
+            border-radius: 20px;
         }
         
         .feature-card:hover {
@@ -362,16 +372,20 @@
         }
         
         .feature-card h3 {
-            margin-bottom: 15px;
-            font-size: 1.25rem;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+        
+        .feature-card p {
+            font-size: 1.15rem;
         }
 
         .icon-box {
             color: var(--primary-green);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             background: #f0f7f4;
-            width: 70px;
-            height: 70px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -382,41 +396,44 @@
         .details-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+            gap: 25px;
             text-align: center;
         }
 
         .detail-box {
             background: #fff;
-            padding: 25px;
+            padding: 30px;
             border-radius: var(--radius-card);
-            border: 1px solid rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.08);
         }
+        
+        .detail-box h3 { font-size: 1.4rem; }
+        .detail-box p { font-size: 1.2rem; }
 
         /* PRICE BOX DESIGN */
         .price-highlight-box {
             background: #fff;
             border-radius: var(--radius-card);
-            padding: 30px 40px;
+            padding: 40px;
             text-align: center;
-            border: 2px solid var(--accent-gold);
+            border: 3px solid var(--accent-gold);
             box-shadow: 0 15px 50px rgba(212, 175, 55, 0.15);
-            max-width: 400px;
-            margin: 50px auto 0;
+            max-width: 450px;
+            margin: 60px auto 0;
             position: relative;
             background-clip: padding-box;
         }
         
         .price-badge {
             position: absolute;
-            top: -15px;
+            top: -18px;
             left: 50%;
             transform: translateX(-50%);
             background: var(--accent-gold);
             color: #fff;
-            padding: 5px 20px;
-            border-radius: 20px;
-            font-size: 0.9rem;
+            padding: 8px 30px;
+            border-radius: 30px;
+            font-size: 1.1rem;
             font-weight: 700;
         }
 
@@ -424,7 +441,7 @@
         .form-section {
             background: var(--primary-green);
             color: white;
-            padding: 80px 0;
+            padding: 90px 0;
             margin: 0;
             position: relative;
             overflow: hidden;
@@ -432,46 +449,46 @@
         }
 
         .form-container {
-            max-width: 500px;
+            max-width: 550px;
             margin: 0 auto;
             position: relative;
             z-index: 10;
             background: rgba(255,255,255,0.1);
-            padding: 40px;
-            border-radius: 20px;
+            padding: 45px;
+            border-radius: 24px;
             backdrop-filter: blur(5px);
-            border: 1px solid rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             text-align: right;
         }
 
         .form-label {
             display: block;
-            margin-bottom: 8px;
-            font-size: 0.95rem;
-            opacity: 0.9;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            opacity: 1; /* אטימות מלאה לקריאות */
             font-weight: 500;
         }
 
-        /* Default input */
+        /* Default input (for dark bg) */
         .form-input {
             width: 100%;
-            padding: 16px 20px;
-            border-radius: 12px;
+            padding: 18px 25px; /* פדינג גדול */
+            border-radius: 14px;
             border: 2px solid transparent;
-            font-family: 'Heebo', sans-serif; /* Explicit font */
-            font-size: 1rem;
+            font-family: 'Heebo', sans-serif;
+            font-size: 1.2rem;
+            height: 60px;
             outline: none;
             transition: all 0.3s;
-            background: rgba(255,255,255,0.95);
+            background: #ffffff; /* לבן מלא */
         }
 
         .form-input:focus {
             border-color: var(--accent-gold);
-            background: #ffffff;
         }
 
         .form-input.error {
@@ -480,9 +497,10 @@
 
         .error-msg {
             color: #ffbaba;
-            font-size: 0.85rem;
-            margin-top: 5px;
+            font-size: 1rem;
+            margin-top: 8px;
             display: none;
+            font-weight: 500;
         }
         
         .hero-form-box .error-msg {
@@ -497,7 +515,7 @@
             display: none;
             background: #fff;
             color: var(--primary-green);
-            padding: 40px;
+            padding: 50px;
             border-radius: var(--radius-card);
             text-align: center;
         }
@@ -506,70 +524,81 @@
         .check-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 25px;
+            gap: 30px;
         }
 
         .check-item {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
             background: #ffffff;
-            padding: 20px 25px;
-            border-radius: 16px;
-            border: 1px solid rgba(27, 77, 62, 0.05);
+            padding: 25px 30px;
+            border-radius: 18px;
+            border: 1px solid rgba(27, 77, 62, 0.08);
+            font-size: 1.15rem;
         }
 
         .check-icon {
             color: var(--primary-green);
-            min-width: 24px;
+            min-width: 28px;
+            width: 28px;
+            height: 28px;
         }
 
         /* FAQ */
         .faq-item {
             background: #fff;
-            border-radius: 16px;
-            padding: 25px;
-            margin-bottom: 20px;
+            border-radius: 18px;
+            padding: 30px;
+            margin-bottom: 25px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-            border-right: 4px solid var(--accent-gold);
+            border-right: 5px solid var(--accent-gold);
         }
         .faq-q {
             font-weight: 700;
             color: var(--primary-green);
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             display: flex;
-            align-items: center;
-            gap: 10px;
+            align-items: flex-start;
+            gap: 15px;
+            font-size: 1.3rem;
+        }
+        .faq-a {
+            font-size: 1.15rem;
+            padding-right: 35px; /* יישור עם הטקסט של השאלה */
         }
         
         /* BOTTOM CTA */
         .bottom-cta-section {
             text-align: center;
             background: #fff;
-            padding: 60px 0;
+            padding: 80px 0;
         }
 
         /* Footer */
         footer {
             background: #153e32;
-            color: rgba(255,255,255,0.6);
-            padding: 40px 0;
+            color: rgba(255,255,255,0.8);
+            padding: 50px 0;
             text-align: center;
-            font-size: 0.9rem;
+            font-size: 1rem;
             position: relative;
         }
 
         /* Mobile */
         @media (max-width: 768px) {
+            body { font-size: 19px; }
             .hero { padding-top: 40px; }
-            .hero h1 { font-size: 2.5rem; }
+            .hero h1 { font-size: 2.6rem; }
             .hero-image-placeholder { height: 280px; }
-            .section-title { font-size: 1.8rem; flex-direction: column; gap: 5px; }
+            .section-title { font-size: 2rem; flex-direction: column; gap: 10px; }
             .glass-card { padding: 25px; }
             .check-grid { grid-template-columns: 1fr; }
             .form-section { border-radius: 0; margin: 0; }
-            .form-container { padding: 25px; }
-            .hero-form-box { padding: 20px; margin: 20px auto; }
+            .form-container { padding: 30px 20px; }
+            .hero-form-box { padding: 30px 20px; margin: 30px auto; }
+            .pain-item { font-size: 1.15rem; }
+            .btn { width: 100%; padding: 20px; font-size: 1.3rem; }
         }
     </style>
 </head>
@@ -603,7 +632,7 @@
                         <div class="error-msg">נא להזין מספר נייד תקין (10 ספרות בדיוק)</div>
                     </div>
                     
-                    <button type="submit" class="btn btn-gold" style="width: 100%; margin-top: 10px;">
+                    <button type="submit" class="btn btn-gold" style="width: 100%; margin-top: 15px;">
                         כן! אני רוצה לשריין את המקום שלי בהרצאה
                         <i data-lucide="arrow-left"></i>
                     </button>
@@ -612,13 +641,13 @@
                 <!-- Success Message for Hero Form -->
                 <div class="success-message">
                     <div style="color: var(--primary-green); margin-bottom: 20px;">
-                        <i data-lucide="check-circle" size="64"></i>
+                        <i data-lucide="check-circle" size="70"></i>
                     </div>
                     <h3>איזה כיף!</h3>
                     <p>הפרטים נקלטו בהצלחה.</p>
                     <p>מיד מועברת לדף התשלום...</p>
                     <div style="margin-top: 20px;">
-                        <i data-lucide="loader" class="animate-spin"></i>
+                        <i data-lucide="loader" class="animate-spin" size="32"></i>
                     </div>
                 </div>
             </div>
@@ -659,30 +688,30 @@
             <div class="glass-card">
                 <div class="pain-list">
                     <div class="pain-item">
-                        <div class="pain-icon-wrapper"><i data-lucide="list-x"></i></div>
+                        <div class="pain-icon-wrapper"><i data-lucide="list-x" size="28"></i></div>
                         <p>כל יום את קמה עם <strong>רשימה של דברים לעשות</strong>, אבל בסוף היום לא עשית אף אחד מהדברים שבאמת חשובים לך?</p>
                     </div>
                     <div class="pain-item">
-                        <div class="pain-icon-wrapper"><i data-lucide="battery-low"></i></div>
+                        <div class="pain-icon-wrapper"><i data-lucide="battery-low" size="28"></i></div>
                         <p>את תמיד זמינה לכולם - לילדים, לנכדים - אבל <strong>אף פעם אין לך זמן לעצמך?</strong></p>
                     </div>
                     <div class="pain-item">
-                        <div class="pain-icon-wrapper"><i data-lucide="hourglass"></i></div>
+                        <div class="pain-icon-wrapper"><i data-lucide="hourglass" size="28"></i></div>
                         <p>את מרגישה שהימים פשוט חולפים, ואת <strong>עייפה כל הזמן</strong>, אבל לא יודעת למה?</p>
                     </div>
                     <div class="pain-item">
-                        <div class="pain-icon-wrapper"><i data-lucide="book-x"></i></div>
+                        <div class="pain-icon-wrapper"><i data-lucide="book-x" size="28"></i></div>
                         <p>יש לך חלומות - תחביב, ספר שרצית לקרוא - אבל <strong>"אין זמן"?</strong></p>
                     </div>
                     <div class="pain-item">
-                        <div class="pain-icon-wrapper"><i data-lucide="heart-crack"></i></div>
+                        <div class="pain-icon-wrapper"><i data-lucide="heart-crack" size="28"></i></div>
                         <p>את מרגישה אשמה כשאת עושה משהו בשבילך, כי "אולי צריכה לעזור למישהו"?</p>
                     </div>
                 </div>
             </div>
             
             <div class="text-center">
-                <p class="font-medium" style="color: var(--primary-green); font-size: 1.3rem; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                <p class="font-medium" style="color: var(--primary-green); font-size: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 30px;">
                     אם ענית "כן" אפילו לשאלה אחת - ההרצאה הזו בשבילך! 
                     <i data-lucide="flower-2"></i>
                 </p>
@@ -698,48 +727,48 @@
                     <i data-lucide="gift"></i>
                     מה את תקבלי בהרצאה?
                 </h2>
-                <p style="margin-bottom: 50px;">במשך 40 דקות מרתקות תלמדי:</p>
+                <p style="margin-bottom: 50px; font-size: 1.3rem;">במשך 40 דקות מרתקות תלמדי:</p>
             </div>
             
             <div class="grid-cards">
                 <!-- Secret 1 -->
                 <div class="feature-card">
-                    <div class="icon-box"><i data-lucide="zap" size="32"></i></div>
+                    <div class="icon-box"><i data-lucide="zap" size="40"></i></div>
                     <h3>סוד מספר 1:<br>למה את תמיד עייפה</h3>
                     <p>גלי את החיבור המפתיע בין ניהול הזמן שלך למצב הרגשי והפיזי שלך.</p>
-                    <p class="font-medium text-gold" style="font-size:0.9rem; margin-top:auto;">(טיפ אחד יכול <strong>לשנות את רמת האנרגיה</strong> שלך לגמרי!)</p>
+                    <p class="font-medium text-gold" style="font-size:1.1rem; margin-top:auto;">(טיפ אחד יכול <strong>לשנות את רמת האנרגיה</strong> שלך לגמרי!)</p>
                 </div>
                 
                 <!-- Secret 2 -->
                 <div class="feature-card">
-                    <div class="icon-box"><i data-lucide="clock" size="32"></i></div>
+                    <div class="icon-box"><i data-lucide="clock" size="40"></i></div>
                     <h3>סוד מספר 2:<br>הטכניקה של 15 דקות</h3>
                     <p>איך תכנון קצר בערב יכול להפוך את כל המחרת שלך.</p>
-                    <p class="font-medium text-gold" style="font-size:0.9rem; margin-top:auto;">(ותיפטרי סוף סוף מהתחושה <strong>"לא עשיתי כלום היום"</strong>)</p>
+                    <p class="font-medium text-gold" style="font-size:1.1rem; margin-top:auto;">(ותיפטרי סוף סוף מהתחושה <strong>"לא עשיתי כלום היום"</strong>)</p>
                 </div>
 
                 <!-- Secret 3 -->
                 <div class="feature-card">
-                    <div class="icon-box"><i data-lucide="gem" size="32"></i></div>
+                    <div class="icon-box"><i data-lucide="gem" size="40"></i></div>
                     <h3>סוד מספר 3:<br>איך למצוא את ה"יהלומים"</h3>
                     <p>הטכניקה שתגלה לך איפה באמת כדאי לך להשקיע את הזמן.</p>
-                    <p class="font-medium text-gold" style="font-size:0.9rem; margin-top:auto;">(תדעי בדיוק מה באמת משנה ומה רק גוזל לך אנרגיה)</p>
+                    <p class="font-medium text-gold" style="font-size:1.1rem; margin-top:auto;">(תדעי בדיוק מה באמת משנה ומה רק גוזל לך אנרגיה)</p>
                 </div>
 
                 <!-- Secret 4 -->
                 <div class="feature-card">
-                    <div class="icon-box"><i data-lucide="lightbulb" size="32"></i></div>
+                    <div class="icon-box"><i data-lucide="lightbulb" size="40"></i></div>
                     <h3>סוד מספר 4:<br>הטריק שחוסך תסכול</h3>
                     <p>איך להימנע מהטעויות שכולן עושות ולהגיע למטרה מהר יותר.</p>
-                    <p class="font-medium text-gold" style="font-size:0.9rem; margin-top:auto;">(ותפסיקי לבזבז זמן על ניסוי וטעייה)</p>
+                    <p class="font-medium text-gold" style="font-size:1.1rem; margin-top:auto;">(ותפסיקי לבזבז זמן על ניסוי וטעייה)</p>
                 </div>
 
                 <!-- Secret 5 -->
                 <div class="feature-card">
-                    <div class="icon-box"><i data-lucide="sparkles" size="32"></i></div>
+                    <div class="icon-box"><i data-lucide="sparkles" size="40"></i></div>
                     <h3>סוד מספר 5:<br>כוח הבחירות הקטנות</h3>
                     <p>איך 10 דקות ביום יכולות לשנות את כל החיים שלך.</p>
-                    <p class="font-medium text-gold" style="font-size:0.9rem; margin-top:auto;">(סיפורים מעוררי השראה של נשים בדיוק כמוך!)</p>
+                    <p class="font-medium text-gold" style="font-size:1.1rem; margin-top:auto;">(סיפורים מעוררי השראה של נשים בדיוק כמוך!)</p>
                 </div>
             </div>
         </div>
@@ -756,22 +785,22 @@
             </div>
             <div class="details-grid">
                 <div class="detail-box">
-                    <i data-lucide="map-pin" class="text-gold" style="margin-bottom: 15px;"></i>
+                    <i data-lucide="map-pin" class="text-gold" style="margin-bottom: 15px;" size="32"></i>
                     <h3>היכן?</h3>
                     <p>אונליין בזום<br>(מהנוחות של הבית!)</p>
                 </div>
                 <div class="detail-box">
-                    <i data-lucide="calendar" class="text-gold" style="margin-bottom: 15px;"></i>
+                    <i data-lucide="calendar" class="text-gold" style="margin-bottom: 15px;" size="32"></i>
                     <h3>מתי?</h3>
                     <p>יום רביעי, 14.1<br>בשעה 20:00</p>
                 </div>
                 <div class="detail-box">
-                    <i data-lucide="clock" class="text-gold" style="margin-bottom: 15px;"></i>
+                    <i data-lucide="clock" class="text-gold" style="margin-bottom: 15px;" size="32"></i>
                     <h3>כמה זמן?</h3>
                     <p>40 דקות מרתקות</p>
                 </div>
                 <div class="detail-box">
-                    <i data-lucide="video" class="text-gold" style="margin-bottom: 15px;"></i>
+                    <i data-lucide="video" class="text-gold" style="margin-bottom: 15px;" size="32"></i>
                     <h3>לא יכולה להגיע?</h3>
                     <p>תקבלי הקלטה!</p>
                 </div>
@@ -779,13 +808,13 @@
             
             <div class="price-highlight-box">
                 <div class="price-badge">השקעה סימלית</div>
-                <p style="font-size: 4rem; font-weight: 700; color: var(--primary-green); line-height:1; margin: 20px 0;">37 ₪</p>
-                <p style="font-size: 1rem; color: var(--text-gray);">חישבי על זה: 37 ₪ זה פחות מקפה ועוגה בבית קפה...<br>אבל התובנות מההרצאה ילוו אותך שנים!</p>
+                <p style="font-size: 5rem; font-weight: 700; color: var(--primary-green); line-height:1; margin: 30px 0;">37 ₪</p>
+                <p style="font-size: 1.2rem; color: var(--text-gray);">חישבי על זה: 37 ₪ זה פחות מקפה ועוגה בבית קפה...<br>אבל התובנות מההרצאה ילוו אותך שנים!</p>
             </div>
         </div>
     </section>
 
-    <!-- Registration Form Section (Original Bottom Form) -->
+    <!-- Registration Form Section (Bottom) -->
     <section class="form-section" id="register">
         <div class="wave-top wave">
             <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -794,11 +823,11 @@
         </div>
 
         <div class="container">
-            <h2 class="text-center" style="color: #fff; margin-bottom: 10px; font-size: 2.5rem; display: flex; align-items: center; justify-content: center; gap: 15px;">
+            <h2 class="text-center" style="color: #fff; margin-bottom: 15px; font-size: 2.8rem; display: flex; align-items: center; justify-content: center; gap: 15px;">
                 <i data-lucide="flame"></i>
                 הרשמה מהירה
             </h2>
-            <p class="text-center" style="color: rgba(255,255,255,0.9); margin-bottom: 30px; font-weight: 500; font-size: 1.2rem;">מלאי פרטים למעבר לתשלום מאובטח</p>
+            <p class="text-center" style="color: rgba(255,255,255,0.9); margin-bottom: 40px; font-weight: 500; font-size: 1.4rem;">מלאי פרטים למעבר לתשלום מאובטח</p>
             
             <div class="form-container">
                 <div class="form-content">
@@ -821,7 +850,7 @@
                             <div class="error-msg">נא להזין מספר נייד תקין (10 ספרות בדיוק)</div>
                         </div>
                         
-                        <button type="submit" class="btn btn-gold" style="width: 100%; margin-top: 10px;">
+                        <button type="submit" class="btn btn-gold" style="width: 100%; margin-top: 15px;">
                             כן! אני רוצה לשריין את המקום שלי בהרצאה
                             <i data-lucide="arrow-left"></i>
                         </button>
@@ -831,13 +860,13 @@
                 <!-- Success Message -->
                 <div class="success-message">
                     <div style="color: var(--primary-green); margin-bottom: 20px;">
-                        <i data-lucide="check-circle" size="64"></i>
+                        <i data-lucide="check-circle" size="70"></i>
                     </div>
                     <h3>איזה כיף!</h3>
                     <p>הפרטים נקלטו בהצלחה.</p>
                     <p>מיד מועברת לדף התשלום...</p>
                     <div style="margin-top: 20px;">
-                        <i data-lucide="loader" class="animate-spin"></i>
+                        <i data-lucide="loader" class="animate-spin" size="32"></i>
                     </div>
                 </div>
             </div>
@@ -861,27 +890,27 @@
             </div>
             <div class="check-grid">
                 <div class="check-item">
-                    <div class="check-icon"><i data-lucide="check-circle-2"></i></div>
+                    <div class="check-icon"><i data-lucide="check-circle-2" size="28"></i></div>
                     <span>את רוצה סוף סוף להפסיק <strong>להרגיש עייפה</strong> כל הזמן</span>
                 </div>
                 <div class="check-item">
-                    <div class="check-icon"><i data-lucide="check-circle-2"></i></div>
+                    <div class="check-icon"><i data-lucide="check-circle-2" size="28"></i></div>
                     <span>את רוצה ללמוד <strong>לומר "לא"</strong> בלי להרגיש אשמה</span>
                 </div>
                 <div class="check-item">
-                    <div class="check-icon"><i data-lucide="check-circle-2"></i></div>
+                    <div class="check-icon"><i data-lucide="check-circle-2" size="28"></i></div>
                     <span>את רוצה לעשות יותר דברים שאת <strong>אוהבת</strong></span>
                 </div>
                 <div class="check-item">
-                    <div class="check-icon"><i data-lucide="check-circle-2"></i></div>
+                    <div class="check-icon"><i data-lucide="check-circle-2" size="28"></i></div>
                     <span>את רוצה להרגיש שאת שולטת בחיים, לא שהחיים שולטים בך</span>
                 </div>
                 <div class="check-item">
-                    <div class="check-icon"><i data-lucide="check-circle-2"></i></div>
+                    <div class="check-icon"><i data-lucide="check-circle-2" size="28"></i></div>
                     <span>את רוצה להיות דוגמה לילדים ולנכדים - אישה שיודעת <strong>לדאוג גם לעצמה</strong></span>
                 </div>
                 <div class="check-item">
-                    <div class="check-icon"><i data-lucide="check-circle-2"></i></div>
+                    <div class="check-icon"><i data-lucide="check-circle-2" size="28"></i></div>
                     <span>את רוצה לחיות את השנים הבאות בצורה הכי מלאה ומספקת</span>
                 </div>
             </div>
@@ -894,8 +923,8 @@
             <div class="glass-card" style="max-width: 800px; margin: 0 auto; position: relative; border: 2px solid var(--bg-cream);">
                 <i data-lucide="quote" style="position: absolute; top: 30px; right: 30px; opacity: 0.1; width: 60px; height: 60px; color: var(--primary-green);"></i>
                 <div class="text-center" style="margin-bottom: 30px;">
-                    <i data-lucide="mail-open" color="var(--accent-gold)" size="32"></i>
-                    <h3 style="color: var(--primary-green); margin-top:10px;">מסר אישי ממני אליך</h3>
+                    <i data-lucide="mail-open" color="var(--accent-gold)" size="40"></i>
+                    <h3 style="color: var(--primary-green); margin-top:10px; font-size: 2rem;">מסר אישי ממני אליך</h3>
                 </div>
                 <p>יקרה,</p>
                 <br>
@@ -905,9 +934,9 @@
                 <p>אבל דעי לך - <strong>40 דקות האלה יכולות לשנות את איך שאת חיה</strong> את כל השנים הבאות.</p>
                 <p>זו לא עוד הרצאה על "איך להיות יותר פרודוקטיבית". זו הזדמנות לגלות מחדש את עצמך. להבין שמגיע לך להיות מאושרת. ללמוד איך לחיות, לא רק לרוץ.</p>
                 <br>
-                <p>אני מזמינה אותך להעניק לעצמך את המתנה הזו. בואי, זה יהיה נפלא. <i data-lucide="heart" size="18" fill="var(--accent-gold)" color="var(--accent-gold)"></i></p>
+                <p>אני מזמינה אותך להעניק לעצמך את המתנה הזו. בואי, זה יהיה נפלא. <i data-lucide="heart" size="22" fill="var(--accent-gold)" color="var(--accent-gold)"></i></p>
                 <div class="text-center mt-4">
-                    <span style="font-family: 'Rubik', sans-serif; font-size: 1.4rem; color: var(--accent-gold); font-weight:500;">בברכה וחיבוק</span>
+                    <span style="font-family: 'Rubik', sans-serif; font-size: 1.6rem; color: var(--accent-gold); font-weight:500;">בברכה וחיבוק</span>
                 </div>
             </div>
         </div>
@@ -923,19 +952,19 @@
                 </h2>
             </div>
             <div class="faq-item">
-                <div class="faq-q"><i data-lucide="chevron-left" size="20" color="var(--accent-gold)"></i> האם ההרצאה באמת בשבילי?</div>
+                <div class="faq-q"><i data-lucide="chevron-left" size="24" color="var(--accent-gold)"></i> האם ההרצאה באמת בשבילי?</div>
                 <div class="faq-a">אם את בגיל 50+ ומרגישה שהזמן בורח לך, שאת עייפה, או שפשוט רוצה יותר זמן לעצמך - זה בדיוק בשבילך!</div>
             </div>
             <div class="faq-item">
-                <div class="faq-q"><i data-lucide="chevron-left" size="20" color="var(--accent-gold)"></i> מה אם אני לא יכולה להגיע?</div>
+                <div class="faq-q"><i data-lucide="chevron-left" size="24" color="var(--accent-gold)"></i> מה אם אני לא יכולה להגיע?</div>
                 <div class="faq-a">אין בעיה! תקבלי הקלטה של ההרצאה ותוכלי לצפות בה בזמן שנוח לך.</div>
             </div>
             <div class="faq-item">
-                <div class="faq-q"><i data-lucide="chevron-left" size="20" color="var(--accent-gold)"></i> מה אם אני כבר ניסיתי הכל?</div>
+                <div class="faq-q"><i data-lucide="chevron-left" size="24" color="var(--accent-gold)"></i> מה אם אני כבר ניסיתי הכל?</div>
                 <div class="faq-a">הגישה שלנו שונה - היא לא דורשת ממך להיות "יותר ממושמעת". היא מלמדת אותך לעבוד חכם, לא קשה.</div>
             </div>
             <div class="faq-item">
-                <div class="faq-q"><i data-lucide="chevron-left" size="20" color="var(--accent-gold)"></i> האם אני צריכה להכין משהו מראש?</div>
+                <div class="faq-q"><i data-lucide="chevron-left" size="24" color="var(--accent-gold)"></i> האם אני צריכה להכין משהו מראש?</div>
                 <div class="faq-a">רק ללב פתוח ומחברת לרשימות. זהו!</div>
             </div>
         </div>
@@ -944,8 +973,8 @@
     <!-- Bottom CTA (Simple) -->
     <section class="bottom-cta-section">
         <div class="container">
-            <h2 style="margin-bottom: 20px;">אל תחכי לרגע האחרון</h2>
-            <p style="margin-bottom: 30px; font-size: 1.2rem;">הצטרפי למאות נשים שכבר בחרו בעצמן</p>
+            <h2 style="margin-bottom: 25px; font-size: 2.5rem;">אל תחכי לרגע האחרון</h2>
+            <p style="margin-bottom: 35px; font-size: 1.4rem;">הצטרפי למאות נשים שכבר בחרו בעצמן</p>
             <a href="#register" class="btn btn-gold">
                 שרייני את מקומך ב-37 ₪
                 <i data-lucide="arrow-up"></i>
@@ -962,7 +991,7 @@
         </div>
         <div class="container" style="padding-top: 50px;">
             <p>© כל הזכויות שמורות | רבקה הולצברג בריאות שבאה מהטבע | 2026</p>
-            <div style="margin-top: 15px; opacity: 0.6; display: flex; justify-content: center; gap: 15px;">
+            <div style="margin-top: 20px; opacity: 0.8; display: flex; justify-content: center; gap: 25px; font-size: 1.1rem;">
                 <a href="#" style="color:white">תקנון</a> | 
                 <a href="#" style="color:white">הצהרת נגישות</a> | 
                 <a href="#" style="color:white">צור קשר</a>
@@ -1081,6 +1110,6 @@
             }
         }
     </script>
-
+<script src="https://rivkaol.github.io/legal-footer.js"></script>
 </body>
 </html>
